@@ -94,7 +94,7 @@ console.log("Layouts found:", layouts);
 ```
 
 ## License
-Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 Benjamin Grand [@elvticc](https://twitter.com/elvticc)
