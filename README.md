@@ -86,8 +86,8 @@ JavaScript:
 ```javascript
 var frame = require("tns-core-modules/ui/frame");
 
-const pageLayout: View = frame.topmost.currentPage.content;
-const checkedBoxes: Array<View> = pageLayout.getViewByValPair("checked", true); // or "true"
+const pageLayout = frame.topmost.currentPage.content;
+const checkedBoxes = pageLayout.getViewByValPair("checked", true); // or "true"
 
 console.log("Checked boxes found:", checkedBoxes);
 ```
