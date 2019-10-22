@@ -1,5 +1,6 @@
 # (WIP) NativeScript Getters Plugin
-A NativeScript plugin that adds four new getters – in addition to the native "getViewById" method – to retrieve one or more views by tag, type, property or value pair.
+
+A NativeScript plugin that adds five new getters – in addition to the native "getViewById" method – to retrieve one or more views by tag, type, class, property or value pair.
 
 ## Getting Started
 
@@ -7,40 +8,99 @@ A NativeScript plugin that adds four new getters – in addition to the native "
 
 The basics:
 
-* NativeScript installed and configured (see [CLI Setup](https://docs.nativescript.org/start/quick-setup))
-* An IDE with intelligent code completion (see [VS Code](https://www.nativescript.org/nativescript-for-visual-studio-code))
-* A functional project to use the plugin (see [App Templates](https://docs.nativescript.org/app-templates/app-templates))
+* NativeScript installed and configured. (see [CLI setup](https://docs.nativescript.org/start/quick-setup))
+* An IDE with intelligent code completion. (see [VS Code](https://www.nativescript.org/nativescript-for-visual-studio-code))
+* A functional project to use the plugin. (see [app templates](https://docs.nativescript.org/app-templates/app-templates))
 
 Minimum versions:
-> From the shell at the root of your project folder, write the command `npm install package-name --save` to update a package by its name.
+
+> From the shell at the root of your project folder, write the command `tns plugin update <plugin-name>` to update a plugin by its name. (see [docs](https://docs.nativescript.org/tooling/docs-cli/lib-management/plugin-update))
 
 * `tns-core-modules` 6.1.2 or higher
+
+> From the shell at the root of your project folder, write the command `tns platform update <platform-name>` to update a platform by its name. (see [docs](https://docs.nativescript.org/tooling/docs-cli/project/configuration/platform-update))
+
+* `android-runtime` 6.1.2 or higher
+* `ios-runtime` 6.1.1 or higher
 
 ### Installation
 
 From the shell at the root of your project folder, write one of the following commands to install the plugin. More information on https://docs.nativescript.org/core-concepts/plugins.
 
 ```shell
-npm install nativescript-getters --save
+tns plugin add nativescript-getters
 ```
 
 or
 
 ```shell
-tns plugin add nativescript-getters
+npm install nativescript-getters --save
 ```
 
 ## Usage
+
 Import the plugin at the top of your JavaScript or TypeScript file.
 
 JavaScript:
+
 ```javascript
 var getters = require("nativescript-getters");
 ```
 
 TypeScript:
+
 ```typescript
 import * as getters from "nativescript-getters";
+```
+
+### Examples
+
+#### Get view by type
+
+JavaScript:
+
+```javascript
+var frame = require("tns-core-modules/ui/frame");
+
+const pageLayout = frame.topmost.currentPage.content;
+const layouts = pageLayout.getViewByType("layout");
+
+console.log("Layouts found:", layouts);
+```
+
+TypeScript:
+
+```typescript
+import { topmost } from "tns-core-modules/ui/frame";
+
+const pageLayout: View = topmost.currentPage.content;
+const layouts: Array<View> = pageLayout.getViewByType("layout");
+
+console.log("Layouts found:", layouts);
+```
+
+#### Get view by value pair
+
+JavaScript:
+
+```javascript
+var frame = require("tns-core-modules/ui/frame");
+
+const pageLayout: View = frame.topmost.currentPage.content;
+const checkedBoxes: Array<View> = pageLayout.getViewByValPair("checked", true); // or "true"
+
+console.log("Checked boxes found:", checkedBoxes);
+```
+
+TypeScript:
+
+```typescript
+import { topmost } from "tns-core-modules/ui/frame";
+
+const pageLayout: View = topmost.currentPage.content;
+const checkedBoxes: Array<View> = pageLayout.getViewByValPair("checked", true); // or "true"
+
+console.log("Checked boxes found:", checkedBoxes);
 ```
 
 ### Methods
@@ -52,6 +112,10 @@ import * as getters from "nativescript-getters";
 * `getViewByType(type: string): Array<View>`
 
 * `getViewByTypes(...types: Array<string>): Array<View>`
+
+* `getViewByClass(class: string): Array<View>`
+
+* `getViewByClasses(...classes: Array<string>): Array<View>`
 
 * `getViewByProperty(property: string): Array<View>`
   * Aliases: Prop, Attribute or Attr
@@ -71,30 +135,10 @@ import * as getters from "nativescript-getters";
 * `getViewByIdentifiers(...identifiers: Array<string>): Array<View>`
   * Alias: Ids
 
-### Examples
-
-Get view by tag:
-```typescript
-import { topmost } from "tns-core-modules/ui/frame";
-
-const pageLayout: View = topmost.currentPage.content;
-const fields: Array<View> = pageLayout.getViewByTag("TextField");
-
-console.log("Fields found:", fields);
-```
-
-Get view by type:
-```typescript
-import { topmost } from "tns-core-modules/ui/frame";
-
-const pageLayout: View = topmost.currentPage.content;
-const layouts: Array<View> = pageLayout.getViewByType("layout");
-
-console.log("Layouts found:", layouts);
-```
-
 ## License
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
 
 ## Contact
+
 Benjamin Grand [@elvticc](https://twitter.com/elvticc)
