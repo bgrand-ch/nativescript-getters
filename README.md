@@ -14,18 +14,18 @@ A NativeScript plugin that adds five new getters – in addition to the native "
 
 #### Minimum versions
 
-> In Command prompt / Terminal navigate to your application root folder, run the command `npm install <package-name>@latest --save` to update a package by its name.
+> In Command prompt / Terminal navigate to your application root folder and run the command `npm install <package-name>@latest --save` to update a package by its name.
 
 * `tns-core-modules` 6.1.2 or higher
 
-> In Command prompt / Terminal navigate to your application root folder, run the command `tns platform update <platform-name>@latest` to update a platform by its name.
+> In Command prompt / Terminal navigate to your application root folder and run the command `tns platform update <platform-name>@latest` to update a platform by its name.
 
 * `android-runtime` 6.1.2 or higher
 * `ios-runtime` 6.1.1 or higher
 
 ### Installation
 
-In Command prompt / Terminal navigate to your application root folder, run one of the following commands to install the plugin. More information on https://docs.nativescript.org/core-concepts/plugins.
+In Command prompt / Terminal navigate to your application root folder and run one of the following commands to install the plugin. More information on https://docs.nativescript.org/core-concepts/plugins.
 
 ```shell
 tns plugin add nativescript-getters
@@ -62,9 +62,9 @@ Once imported, new methods have been added in the Page class and the Layout clas
 _JavaScript_
 
 ```javascript
-var frame = require("tns-core-modules/ui/frame");
+const topmost = require("tns-core-modules/ui/frame").topmost;
 
-const pageLayout = frame.topmost.currentPage.content;
+const pageLayout = topmost().currentPage.content;
 const layouts = pageLayout.getViewsByType("layout");
 
 console.log("Layouts found:", layouts);
@@ -75,7 +75,7 @@ _TypeScript_
 ```typescript
 import { topmost } from "tns-core-modules/ui/frame";
 
-const pageLayout: View = topmost.currentPage.content;
+const pageLayout: View = topmost().currentPage.content;
 const layouts: Array<View> = pageLayout.getViewsByType("layout");
 
 console.log("Layouts found:", layouts);
@@ -86,9 +86,9 @@ console.log("Layouts found:", layouts);
 _JavaScript_
 
 ```javascript
-var frame = require("tns-core-modules/ui/frame");
+const topmost = require("tns-core-modules/ui/frame").topmost;
 
-const pageLayout = frame.topmost.currentPage.content;
+const pageLayout = topmost().currentPage.content;
 const checkedBoxes = pageLayout.getViewsByValPair("checked", true); // or "true"
 
 console.log("Checked boxes found:", checkedBoxes);
@@ -99,7 +99,7 @@ _TypeScript_
 ```typescript
 import { topmost } from "tns-core-modules/ui/frame";
 
-const pageLayout: View = topmost.currentPage.content;
+const pageLayout: View = topmost().currentPage.content;
 const checkedBoxes: Array<View> = pageLayout.getViewsByValPair("checked", true); // or "true"
 
 console.log("Checked boxes found:", checkedBoxes);
