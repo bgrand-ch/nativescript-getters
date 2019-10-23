@@ -53,7 +53,7 @@ _TypeScript_
 import "nativescript-getters";
 ```
 
-Once imported, new methods have been added in the Page class and the Layout classes. (see [methods](#methods))
+Once imported, new methods have been added in the Page class and the Layout classes. (see all [methods](#methods))
 
 ### Examples
 
@@ -120,18 +120,23 @@ console.log("Checked boxes found:", checkedBoxes);
 * `getViewsByClasses(...classes: Array<string>): Array<View>`
 
 * `getViewsByProperty(property: string): Array<View>`
+
   * Aliases: Prop, Attribute or Attr
 
 * `getViewsByProperties(...properties: Array<string>): Array<View>`
+
   * Aliases: Props, Attributes or Attrs
 
 * `getViewsByValuePair(property: string, value: any): Array<View>`
+
   * Alias: ValPair
 
 * `getViewsByValuePairs(...valuePairs: Array<object>): Array<View>`
+
   * Alias: ValPairs
 
 * `getViewsByIdentifiers(...identifiers: Array<string>): Array<View>`
+
   * Alias: Ids
 
 #### Native method
@@ -139,6 +144,7 @@ console.log("Checked boxes found:", checkedBoxes);
 All previous methods return an array of views. The native method returns only a view. The name of this method is written in the singular (`getView`...).
 
 * `getViewById(identifier: string): View`
+
   * Alias: Identifier
 
 ## License
