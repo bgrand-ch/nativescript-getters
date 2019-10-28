@@ -175,7 +175,7 @@ All previous methods return an array of views. The native method returns only a 
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ## Contact
 
