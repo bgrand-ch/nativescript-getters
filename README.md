@@ -23,7 +23,7 @@ Run also the command `tns platform update <platform-name>@latest` to update a pl
 * android-runtime, 6.1.2 or higher
 * ios-runtime, 6.1.1 or higher
 
-You must verify that the ECMAScript version of JavaScript is **es6** or higher. At the root of a TyepScript project folder, the files `tsconfig.json` and `tsconfig.tns.json` are used to define this version.
+You must verify that the ECMAScript version of JavaScript is **es6** or higher. At the root of a TypeScript project folder, the files `tsconfig.json` and `tsconfig.tns.json` are used to define this version.
 
 ### Installation
 
@@ -58,6 +58,30 @@ import "nativescript-getters";
 Once imported, new methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
 
 ### Examples
+
+#### Get view by tags
+
+_JavaScript_
+
+```javascript
+const topmost = require("tns-core-modules/ui/frame").topmost;
+
+const pageLayout = topmost().currentPage.content;
+const fields = pageLayout.getViewsByTags("TextField", "TextView");
+
+console.log("Fields found:", fields);
+```
+
+_TypeScript_
+
+```typescript
+import { topmost } from "tns-core-modules/ui/frame";
+
+const pageLayout: View = topmost().currentPage.content;
+const layouts: Array<View> = pageLayout.getViewsByTags("TextField", "TextView");
+
+console.log("Fields found:", fields);
+```
 
 #### Get view by type
 
