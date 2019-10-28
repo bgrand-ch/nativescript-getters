@@ -1,5 +1,10 @@
 # NativeScript Getters Plugin
 
+![Plugin last version](https://img.shields.io/npm/v/nativescript-getters)
+![GitHub last commit](https://img.shields.io/github/last-commit/elvticc/nativescript-getters)
+![Plugin license](https://img.shields.io/npm/l/nativescript-getters)
+![Npm bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
+
 A NativeScript plugin that adds five new getters – in addition to the native "getViewById" method – to retrieve one or more views by tag, type, class, property or value pair.
 
 ## Getting Started
