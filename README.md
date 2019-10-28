@@ -14,14 +14,16 @@ A NativeScript plugin that adds five new getters – in addition to the native "
 
 #### Minimum versions
 
-> In Command prompt / Terminal navigate to your application root folder and run the command `npm install <package-name>@latest --save` to update a package by its name.
+In Command prompt / Terminal navigate to your application root folder and run the command `npm install <package-name>@latest --save` to update a package by its name.
 
-* `tns-core-modules` 6.1.2 or higher
+* tns-core-modules, 6.1.2 or higher
 
-> In Command prompt / Terminal navigate to your application root folder and run the command `tns platform update <platform-name>@latest` to update a platform by its name.
+Run also the command `tns platform update <platform-name>@latest` to update a platform by its name.
 
-* `android-runtime` 6.1.2 or higher
-* `ios-runtime` 6.1.1 or higher
+* android-runtime, 6.1.2 or higher
+* ios-runtime, 6.1.1 or higher
+
+You must verify that the ECMAScript version of JavaScript is **es6** or higher. At the root of a TyepScript project folder, the files `tsconfig.json` and `tsconfig.tns.json` are used to define this version.
 
 ### Installation
 
@@ -53,7 +55,7 @@ _TypeScript_
 import "nativescript-getters";
 ```
 
-Once imported, new methods have been added in the Page class and the Layout classes. (see all [methods](#methods))
+Once imported, new methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
 
 ### Examples
 
@@ -89,7 +91,7 @@ _JavaScript_
 const topmost = require("tns-core-modules/ui/frame").topmost;
 
 const pageLayout = topmost().currentPage.content;
-const checkedBoxes = pageLayout.getViewsByValPair("checked", true); // or "true"
+const checkedBoxes = pageLayout.getViewsByValuePair("checked", true); // or "true"
 
 console.log("Checked boxes found:", checkedBoxes);
 ```
@@ -100,42 +102,42 @@ _TypeScript_
 import { topmost } from "tns-core-modules/ui/frame";
 
 const pageLayout: View = topmost().currentPage.content;
-const checkedBoxes: Array<View> = pageLayout.getViewsByValPair("checked", true); // or "true"
+const checkedBoxes: Array<View> = pageLayout.getViewsByValuePair("checked", true); // or "true"
 
 console.log("Checked boxes found:", checkedBoxes);
 ```
 
 ### Methods
 
-* `getViewsByTag(tag: string): Array<View>`
+* `getViewsByTag(tagName: string): Array<View>`
 
-* `getViewsByTags(...tags: Array<string>): Array<View>`
+* `getViewsByTags(...tagNames: Array<string>): Array<View>`
 
-* `getViewsByType(type: string): Array<View>`
+* `getViewsByType(typeName: string): Array<View>`
 
-* `getViewsByTypes(...types: Array<string>): Array<View>`
+* `getViewsByTypes(...typeNames: Array<string>): Array<View>`
 
-* `getViewsByClass(class: string): Array<View>`
+* `getViewsByClass(className: string): Array<View>`
 
-* `getViewsByClasses(...classes: Array<string>): Array<View>`
+* `getViewsByClasses(...classNames: Array<string>): Array<View>`
 
-* `getViewsByProperty(property: string): Array<View>`
+* `getViewsByProperty(propertyName: string): Array<View>`
 
   * Aliases: Prop, Attribute or Attr
 
-* `getViewsByProperties(...properties: Array<string>): Array<View>`
+* `getViewsByProperties(...propertyNames: Array<string>): Array<View>`
 
   * Aliases: Props, Attributes or Attrs
 
-* `getViewsByValuePair(property: string, value: any): Array<View>`
+* `getViewsByValuePair(propertyName: string, propertyValue: string|number|boolean): Array<View>`
 
   * Alias: ValPair
 
-* `getViewsByValuePairs(...valuePairs: Array<object>): Array<View>`
+* `getViewsByValuePairs(...valuePairs: Array<{ propertyName: string, propertyValue: string|number|boolean }>): Array<View>`
 
   * Alias: ValPairs
 
-* `getViewsByIdentifiers(...identifiers: Array<string>): Array<View>`
+* `getViewsByIdentifiers(...identifierNames: Array<string>): Array<View>`
 
   * Alias: Ids
 
@@ -143,7 +145,7 @@ console.log("Checked boxes found:", checkedBoxes);
 
 All previous methods return an array of views. The native method returns only a view. The name of this method is written in the singular (`getView`...).
 
-* `getViewById(identifier: string): View`
+* `getViewById(id: string): View`
 
   * Alias: Identifier
 
