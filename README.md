@@ -59,7 +59,7 @@ Once imported, new methods have been added in the Frame, Page, tabs, layouts and
 
 ### Examples
 
-#### Get view by tags
+#### Get views by tags
 
 _JavaScript_
 
@@ -83,7 +83,7 @@ const layouts: Array<View> = pageLayout.getViewsByTags("TextField", "TextView");
 console.log("Fields found:", fields);
 ```
 
-#### Get view by type
+#### Get views by type
 
 _JavaScript_
 
@@ -107,7 +107,7 @@ const layouts: Array<View> = pageLayout.getViewsByType("layout");
 console.log("Layouts found:", layouts);
 ```
 
-#### Get view by value pair
+#### Get views by value pair
 
 _JavaScript_
 
