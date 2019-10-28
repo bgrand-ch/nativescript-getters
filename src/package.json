@@ -1,0 +1,48 @@
+{
+    "name": "nativescript-getters",
+    "main": "getters",
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
+    "typings": "index.d.ts",
+    "nativescript": {
+        "platforms": {
+            "android": "6.1.2",
+            "ios": "6.1.1"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/elvticc/nativescript-getters.git"
+    },
+    "homepage": "https://github.com/elvticc/nativescript-getters",
+    "bugs": {
+        "url": "https://github.com/elvticc/nativescript-getters/issues"
+    },
+    "author": {
+        "name": "Benjamin Grand",
+        "email": "contact@bgrand.ch",
+        "url": "https://github.com/elvticc"
+    },
+    "keywords": [
+        "NativeScript",
+        "TypeScript", "JavaScript",
+        "Android", "iOS",
+        "Angular", "Vue", "React",
+        "Plugin", "Get", "Getter", "Getters",
+        "View", "Views",
+        "Tag", "Tags",
+        "Type", "Types",
+        "Class", "Classes",
+        "Id", "Ids", "Identifier", "Identifiers",
+        "Prop", "Props", "Property", "Properties",
+        "Attr", "Attrs", "Attribute", "Attributes",
+        "Val", "Vals", "Value", "Values",
+        "Pair", "Pairs"
+    ],
+    "devDependencies": {
+        "tns-core-modules": "~6.1.2",
+        "typescript": "~3.6.4"
+    },
+    "dependencies": {}
+}
