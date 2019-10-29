@@ -1,7 +1,8 @@
 # NativeScript Getters Plugin
 
-![Plugin last version](https://img.shields.io/npm/v/nativescript-getters)
+![Npm version](https://img.shields.io/npm/v/nativescript-getters)
 ![GitHub last commit](https://img.shields.io/github/last-commit/elvticc/nativescript-getters)
+![Npm downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![Plugin license](https://img.shields.io/npm/l/nativescript-getters)
 ![Npm bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
