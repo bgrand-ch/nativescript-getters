@@ -1,5 +1,12 @@
+# Folders
+node_modules/
+
+# Files
+.DS_Store
 *.map
 *.ts
-!*.d.ts
+!index.d.ts
+!methods/*.d.ts
+!models/*.d.ts
+!typings/*.d.ts
 tsconfig.json
-.DS_Store
