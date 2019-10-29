@@ -1,5 +1,3 @@
-// OK
-
 import { View } from "tns-core-modules/ui/core/view/view";
 import { _getViews } from "./_utilities.method";
 

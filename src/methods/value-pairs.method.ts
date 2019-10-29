@@ -1,5 +1,3 @@
-// ~OK
-
 import { IValuePairs } from "../models/value-pairs.model";
 import { View } from "tns-core-modules/ui/core/view/view";
 import { _getViews, _hasOwnProperty } from "./_utilities.method";
