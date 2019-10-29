@@ -12,7 +12,7 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "nativescript-getters": "^0.1.1",
+    "nativescript-getters": "^0.1.2",
     "nativescript-theme-core": "~1.0.6",
     "nativescript-vue": "~2.4.0",
     "tns-core-modules": "~6.1.0"
