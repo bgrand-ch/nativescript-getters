@@ -1,5 +1,5 @@
 <template>
-    <Page class="page">
+    <Page ref="homepage" class="page">
         <ActionBar class="action-bar">
             <Label class="action-bar-title" text="Home"></Label>
         </ActionBar>
@@ -44,9 +44,28 @@
 </template>
 
 <script>
-    import "nativescript-getters";
-
     export default {
+        mounted() {
+            const page = this.$refs.homepage.nativeView;
+
+            const textViewsFound = page.getViewsByTag("TextView");
+            console.log("TextViews found:", textViewsFound);
+
+            const layoutsFound = page.getViewsByType("layout");
+            console.log("Layouts found:", layoutsFound);
+
+            const classesFound = page.getViewsByClasses("bold", "italic");
+            console.log("Classes found:", classesFound);
+
+            const keyboardsFound = page.getViewsByProperty("keyboardType");
+            console.log("Keyboards found:", keyboardsFound);
+
+            const passwordFound = page.getViewsByValuePair("secure", "true");
+            console.log("Password found:", passwordFound);
+
+            const identifiersFound = page.getViewsByIdentifiers("main", "contact");
+            console.log("Identifiers found:", identifiersFound);
+        },
         computed: {
             message() {
                 return "Blank {N}-Vue app";
