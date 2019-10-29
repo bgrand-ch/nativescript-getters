@@ -1,14 +1,14 @@
 {
     "name": "nativescript-getters",
     "main": "getters",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "license": "MIT",
     "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
     "typings": "index.d.ts",
     "nativescript": {
         "platforms": {
-            "android": "6.1.2",
-            "ios": "6.1.1"
+            "android": "3.0.0",
+            "ios": "3.0.0"
         }
     },
     "repository": {
@@ -27,10 +27,13 @@
     "keywords": [
         "NativeScript",
         "TypeScript",
+        "TS",
         "JavaScript",
+        "JS",
         "Android",
         "iOS",
         "Angular",
+        "NG",
         "Vue",
         "React",
         "Plugin",
@@ -68,7 +71,7 @@
         "tsc": "npm i && tsc"
     },
     "devDependencies": {
-        "tns-core-modules": "~6.1.2",
+        "tns-core-modules": "^6.1.2",
         "typescript": "^3.6.4"
     },
     "dependencies": {}
