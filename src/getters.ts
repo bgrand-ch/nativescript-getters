@@ -22,7 +22,7 @@ const nsClasses: Array<Frame|LayoutBase|Page|TabNavigationBase|TextBase> = [
 ];
 const newMethods = {
 
-    // Tags (OK)
+    // Tags
     getViewsByTag: {
         value: getViewsByTag
     },
@@ -30,7 +30,7 @@ const newMethods = {
         value: getViewsByTags
     },
 
-    // Types (OK)
+    // Types
     getViewsByType: {
         value: getViewsByType
     },
@@ -38,7 +38,7 @@ const newMethods = {
         value: getViewsByTypes
     },
 
-    // Classes (OK)
+    // Classes
     getViewsByClass: {
         value: getViewsByClass
     },
@@ -46,7 +46,7 @@ const newMethods = {
         value: getViewsByClasses
     },
 
-    // Properties (OK)
+    // Properties
     getViewsByProperty: {
         value: getViewsByProperty
     },
@@ -72,7 +72,7 @@ const newMethods = {
         value: getViewsByProperties
     },
 
-    // Value pairs (~OK)
+    // Value pairs
     getViewsByValuePair: {
         value: getViewsByValuePair
     },
@@ -86,7 +86,7 @@ const newMethods = {
         value: getViewsByValuePairs
     },
 
-    // Identifiers (OK)
+    // Identifiers
     getViewByIdentifier: {
         value: getViewByIdentifier
     },
