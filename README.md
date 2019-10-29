@@ -3,7 +3,6 @@
 ![Npm version](https://img.shields.io/npm/v/nativescript-getters)
 ![GitHub last commit](https://img.shields.io/github/last-commit/elvticc/nativescript-getters)
 ![Npm downloads](https://img.shields.io/npm/dw/nativescript-getters)
-![Plugin license](https://img.shields.io/npm/l/nativescript-getters)
 ![Npm bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
 A NativeScript plugin that adds five new getters – in addition to the native "getViewById" method – to retrieve one or more views by tag, type, class, property or value pair.
@@ -14,26 +13,20 @@ A NativeScript plugin that adds five new getters – in addition to the native "
 
 #### The basics
 
-* NativeScript installed and configured. (see [CLI setup](https://docs.nativescript.org/start/quick-setup))
-* An IDE with intelligent code completion. (see [VS Code](https://www.nativescript.org/nativescript-for-visual-studio-code))
-* A functional project to use the plugin. (see [app templates](https://docs.nativescript.org/app-templates/app-templates))
+&#160;&#160;&#160;&#160;&#10033; NativeScript installed and configured. (see [CLI setup](https://docs.nativescript.org/start/quick-setup)) <br>
+&#160;&#160;&#160;&#160;&#10033; An IDE with intelligent code completion. (see [VS Code](https://www.nativescript.org/nativescript-for-visual-studio-code)) <br>
+&#160;&#160;&#160;&#160;&#10033; A functional project to use the plugin. (see [app templates](https://docs.nativescript.org/app-templates/app-templates)) 
 
 #### Minimum versions
 
-In Command prompt / Terminal navigate to your application root folder and run the command `npm install <package-name>@latest --save` to update a package by its name.
-
-* tns-core-modules, 6.1.2 or higher
-
-Run also the command `tns platform update <platform-name>@latest` to update a platform by its name.
-
-* android-runtime, 6.1.2 or higher
-* ios-runtime, 6.1.1 or higher
-
-You must verify that the ECMAScript version of JavaScript is **es6** or higher. At the root of a TypeScript project folder, the files `tsconfig.json` and `tsconfig.tns.json` are used to define this version.
+&#160;&#160;&#160;&#160;&#10033; [tns-core-modules](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-tns-modules), 6.1.2 or higher <br>
+&#160;&#160;&#160;&#160;&#10033; [android-runtime](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-platforms), 6.1.2 or higher <br>
+&#160;&#160;&#160;&#160;&#10033; [ios-runtime](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-platforms), 6.1.1 or higher <br>
+&#160;&#160;&#160;&#160;&#10033; ECMAScript, 2015 (ES6) or higher
 
 ### Installation
 
-In Command prompt / Terminal navigate to your application root folder and run one of the following commands to install the plugin. More information on https://docs.nativescript.org/core-concepts/plugins.
+In Command prompt / Terminal navigate to your application root folder and run one of the following commands to install the plugin. (see [docs](https://docs.nativescript.org/core-concepts/plugins))
 
 ```shell
 tns plugin add nativescript-getters
@@ -44,6 +37,8 @@ or
 ```shell
 npm install nativescript-getters --save
 ```
+
+> The `--save` flag will add the plugin as dependency in your `package.json` file.
 
 ## Usage
 
@@ -60,8 +55,9 @@ _TypeScript_
 ```typescript
 import "nativescript-getters";
 ```
+<br>
 
-Once imported, new methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
+> New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
 
 ### Examples
 
@@ -137,51 +133,37 @@ const checkedBoxes: Array<View> = pageLayout.getViewsByValuePair("checked", true
 console.log("Checked boxes found:", checkedBoxes);
 ```
 
+## API
+
 ### Methods
 
-* `getViewsByTag(tagName: string): Array<View>`
+All methods **return an array of views**, except for the native method `getViewById` and its alias.
 
-* `getViewsByTags(...tagNames: Array<string>): Array<View>`
+Name | Parameter(s)
+:--- | :-----------
+`getViewsByTag` | `tagName: string`
+`getViewsByTags` | `...tagNames: Array<string>`
+`getViewsByType` | `typeName: string`
+`getViewsByTypes` | `...typeNames: Array<string>`
+`getViewsByClass` | `className: string`
+`getViewsByClasses` | `...classNames: Array<string>`
+`getViewsByProperty` <br> _Aliases: Prop, Attribute or Attr_ | `propertyName: string`
+`getViewsByProperties` <br> _Aliases: Props, Attributes or Attrs_ | `...propertyNames: Array<string>`
+`getViewsByValuePair` <br> _Alias: ValPair_ | `propertyName: string` <br> `propertyValue: string\|number\|boolean`
+`getViewsByValuePairs` <br> _Alias: ValPairs_ | `...valuePairs: Array<IValuePair>` <br> _IValuePair: `{ propertyName: string, propertyValue: string\|number\|boolean }`_
+`getViewsByIdentifiers` <br> _Alias: Ids_ | `...identifierNames: Array<string>`
 
-* `getViewsByType(typeName: string): Array<View>`
+### Native method
 
-* `getViewsByTypes(...typeNames: Array<string>): Array<View>`
+The native method **returns only a view**. Its name is written in the singular (`getView`...).
 
-* `getViewsByClass(className: string): Array<View>`
-
-* `getViewsByClasses(...classNames: Array<string>): Array<View>`
-
-* `getViewsByProperty(propertyName: string): Array<View>`
-
-  * Aliases: Prop, Attribute or Attr
-
-* `getViewsByProperties(...propertyNames: Array<string>): Array<View>`
-
-  * Aliases: Props, Attributes or Attrs
-
-* `getViewsByValuePair(propertyName: string, propertyValue: string|number|boolean): Array<View>`
-
-  * Alias: ValPair
-
-* `getViewsByValuePairs(...valuePairs: Array<{ propertyName: string, propertyValue: string|number|boolean }>): Array<View>`
-
-  * Alias: ValPairs
-
-* `getViewsByIdentifiers(...identifierNames: Array<string>): Array<View>`
-
-  * Alias: Ids
-
-#### Native method
-
-All previous methods return an array of views. The native method returns only a view. The name of this method is written in the singular (`getView`...).
-
-* `getViewById(id: string): View`
-
-  * Alias: Identifier
+Name | Parameter
+:--- | :--------
+`getViewById` <br> _Alias: Identifier_ | `id: string`
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/elvticc/nativescript-getters/blob/master/LICENSE) for more information.
 
 ## Contact
 
