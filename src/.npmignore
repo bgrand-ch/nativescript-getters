@@ -6,8 +6,10 @@ hooks/*
 
 # Files
 .env
+.npmrc
 .DS_Store
 .eslintrc.*
+.release-it.*
 *.map
 *.ts
 !index.d.ts
