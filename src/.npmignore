@@ -1,12 +1,24 @@
 # Folders
-node_modules/
+publish/*
+platforms/*
+node_modules/*
+hooks/*
 
 # Files
+.env
 .DS_Store
+.eslintrc.*
 *.map
 *.ts
 !index.d.ts
 !methods/*.d.ts
 !models/*.d.ts
 !typings/*.d.ts
-tsconfig.json
+package-lock.json
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

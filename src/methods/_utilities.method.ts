@@ -1,14 +1,20 @@
-import { IValuePairs } from "../models/value-pairs.model";
-import { View } from "tns-core-modules/ui/core/view/view";
+import {
+    View
+} from "@nativescript/core";
 
-function _getViews(parentView: View, searchedValues: string|Array<string|IValuePairs>,
-                   isAgreed: (vw: View, sVal: string|Array<string|IValuePairs>) => boolean): Array<View> {
+import { IValuePairs } from "../models/value-pairs.model";
+
+function _getViews(parentView: View, searchedValues: string|Array<string|IValuePairs>|IValuePairs,
+                   isAgreed: (vw: View, sVal: string|Array<string|IValuePairs>|IValuePairs) => boolean): Array<View> {
 
     let viewsFound: Array<View> = [];
 
     parentView.eachChildView((view: View): boolean => {
 
-        const isLayout: boolean = view.typeName.indexOf("Layout") !== -1;
+        const notFound: number = -1;
+        const typeName: string = _hasOwnProperty(view, "typeName") ? view.typeName.toLowerCase() : "";
+        const isLayout: boolean = typeName.indexOf("layout") !== notFound;
+        const isScrollView: boolean = typeName.indexOf("scroll") !== notFound;
 
         if (isAgreed(view, searchedValues)) {
 
@@ -16,7 +22,7 @@ function _getViews(parentView: View, searchedValues: string|Array<string|IValueP
 
         }
 
-        if (isLayout) {
+        if (isLayout || isScrollView) {
 
             // Merge the found views of the recursive search
             viewsFound = [...viewsFound, ..._getViews(view, searchedValues, isAgreed)];

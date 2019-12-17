@@ -1,7 +1,10 @@
-import { IGettersMethods } from "../models/getters-methods.model";
-import { Frame } from "tns-core-modules/ui/frame/frame";
+import {
+    Frame
+} from "@nativescript/core";
 
-declare module "tns-core-modules/ui/frame/frame" {
+import { IGettersMethods } from "../models/getters-methods.model";
+
+declare module "@nativescript/core/ui/frame/frame" { // before: declare module "tns-core-modules/ui/frame/frame"
 
     interface Frame extends IGettersMethods {}
 

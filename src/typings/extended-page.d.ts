@@ -1,7 +1,10 @@
-import { IGettersMethods } from "../models/getters-methods.model";
-import { Page } from "tns-core-modules/ui/page/page";
+import {
+    Page
+} from "@nativescript/core";
 
-declare module "tns-core-modules/ui/page/page" {
+import { IGettersMethods } from "../models/getters-methods.model";
+
+declare module "@nativescript/core/ui/page/page" { // before: declare module "tns-core-modules/ui/page/page"
 
     interface Page extends IGettersMethods {}
 

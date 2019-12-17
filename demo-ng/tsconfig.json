@@ -24,6 +24,11 @@
     },
     "exclude": [
         "node_modules",
-        "platforms"
+        "platforms",
+        "../src/node_modules"
+    ],
+    "include": [
+        "../src",
+        "**/*"
     ]
 }

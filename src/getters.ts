@@ -1,8 +1,10 @@
-import { Frame } from "tns-core-modules/ui/frame/frame";
-import { LayoutBase } from "tns-core-modules/ui/layouts/layout-base";
-import { Page } from "tns-core-modules/ui/page/page";
-import { TabNavigationBase } from "tns-core-modules/ui/tab-navigation-base/tab-navigation-base/tab-navigation-base";
-import { TextBase } from "tns-core-modules/ui/text-base/text-base";
+import {
+    Frame,
+    LayoutBase,
+    Page,
+    TabNavigationBase,
+    TextBase
+} from "@nativescript/core";
 
 import { getViewsByTag, getViewsByTags } from "./methods/tags.method";
 import { getViewsByType, getViewsByTypes } from "./methods/types.method";
@@ -23,75 +25,75 @@ const nsClasses: Array<Frame|LayoutBase|Page|TabNavigationBase|TextBase> = [
 const newMethods = {
 
     // Tags
-    getViewsByTag: {
-        value: getViewsByTag
+    "getViewsByTag": {
+        "value": getViewsByTag
     },
-    getViewsByTags: {
-        value: getViewsByTags
+    "getViewsByTags": {
+        "value": getViewsByTags
     },
 
     // Types
-    getViewsByType: {
-        value: getViewsByType
+    "getViewsByType": {
+        "value": getViewsByType
     },
-    getViewsByTypes: {
-        value: getViewsByTypes
+    "getViewsByTypes": {
+        "value": getViewsByTypes
     },
 
     // Classes
-    getViewsByClass: {
-        value: getViewsByClass
+    "getViewsByClass": {
+        "value": getViewsByClass
     },
-    getViewsByClasses: {
-        value: getViewsByClasses
+    "getViewsByClasses": {
+        "value": getViewsByClasses
     },
 
     // Properties
-    getViewsByProperty: {
-        value: getViewsByProperty
+    "getViewsByProperty": {
+        "value": getViewsByProperty
     },
-    getViewsByProp: { // alias
-        value: getViewsByProperty
+    "getViewsByProp": { // alias
+        "value": getViewsByProperty
     },
-    getViewsByAttribute: { // alias
-        value: getViewsByProperty
+    "getViewsByAttribute": { // alias
+        "value": getViewsByProperty
     },
-    getViewsByAttr: { // alias
-        value: getViewsByProperty
+    "getViewsByAttr": { // alias
+        "value": getViewsByProperty
     },
-    getViewsByProperties: {
-        value: getViewsByProperties
+    "getViewsByProperties": {
+        "value": getViewsByProperties
     },
-    getViewsByProps: { // alias
-        value: getViewsByProperties
+    "getViewsByProps": { // alias
+        "value": getViewsByProperties
     },
-    getViewsByAttributes: { // alias
-        value: getViewsByProperties
+    "getViewsByAttributes": { // alias
+        "value": getViewsByProperties
     },
-    getViewsByAttrs: { // alias
-        value: getViewsByProperties
+    "getViewsByAttrs": { // alias
+        "value": getViewsByProperties
     },
 
     // Value pairs
-    getViewsByValuePair: {
-        value: getViewsByValuePair
+    "getViewsByValuePair": {
+        "value": getViewsByValuePair
     },
-    getViewsByValPair: { // alias
-        value: getViewsByValuePair
+    "getViewsByValPair": { // alias
+        "value": getViewsByValuePair
     },
-    getViewsByValuePairs: {
-        value: getViewsByValuePairs
+    "getViewsByValuePairs": {
+        "value": getViewsByValuePairs
     },
-    getViewsByValPairs: { // alias
-        value: getViewsByValuePairs
+    "getViewsByValPairs": { // alias
+        "value": getViewsByValuePairs
     },
 
     // Identifiers
-    getViewByIdentifier: {
-        value: getViewByIdentifier
+    "getViewByIdentifier": {
+        "value": getViewByIdentifier
     },
-    getViewsByIdentifiers: {
-        value: getViewsByIdentifiers
+    "getViewsByIdentifiers": {
+        "value": getViewsByIdentifiers
     }
 
 };
@@ -104,7 +106,11 @@ nsClasses.forEach((nsClass) => {
 
     } catch (error) {
 
-        console.warn("-#########-- NATIVESCRIPT GETTERS PLUGIN WARNING --#########-", `NativeScript class: ${nsClass} //`, `Error ${error.name}: ${error.message}`);
+        console.warn(
+            "-#########-- NATIVESCRIPT GETTERS PLUGIN WARNING --#########-",
+            `NativeScript class: ${nsClass} //`,
+            `Error ${error.name}: ${error.message}`
+        );
 
     }
 

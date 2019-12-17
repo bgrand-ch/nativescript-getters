@@ -1,5 +1,8 @@
+import {
+    View
+} from "@nativescript/core";
+
 import { IValuePairs } from "./value-pairs.model";
-import { View } from "tns-core-modules/ui/core/view/view";
 
 interface IGettersMethods {
 
@@ -101,10 +104,10 @@ interface IGettersMethods {
      * @param {string|number|boolean} propertyValue - Value of "propertyName"
      * @return {Array<View>} Views that have been found
      */
-    getViewsByValuePair<T extends View>(propertyName: string, propertyValue: string|number|boolean): Array<T>;
+    getViewsByValuePair<T extends View>(valuePair: IValuePairs): Array<T>;
 
     /** @borrows getViewsByValuePair as getViewsByValPair */
-    getViewsByValPair<T extends View>(propertyName: string, propertyValue: any): Array<T>; // alias
+    getViewsByValPair<T extends View>(valuePair: IValuePairs): Array<T>; // alias
 
     /**
      * Browse the children’s properties, and their value, from the parent view and retrieve the views corresponding to this value pairs

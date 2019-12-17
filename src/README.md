@@ -59,6 +59,25 @@ import "nativescript-getters";
 
 > New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
 
+### Vue.js
+
+The plugin may not work properly with these symlinked. It is because webpack resolves symlinks to their real locations by default.
+
+A workaround for this issue is to manually disable symlinks resolution in webpack:
+
+```javascript
+const config = {
+    // ...
+    resolve: {
+        // ...
+        // resolve symlinks to symlinked modules
+        symlinks: false, // default: true
+        // ...
+    }
+    // ...
+};
+```
+
 ### Examples
 
 #### Get views by tags

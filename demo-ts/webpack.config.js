@@ -3,6 +3,7 @@ const { join, relative, resolve, sep } = require("path");
 const webpack = require("webpack");
 const nsWebpack = require("nativescript-dev-webpack");
 const nativescriptTarget = require("nativescript-dev-webpack/nativescript-target");
+const { getNoEmitOnErrorFromTSConfig } = require("nativescript-dev-webpack/utils/tsconfig-utils");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -46,8 +47,11 @@ module.exports = env => {
         unitTesting, // --env.unitTesting,
         verbose, // --env.verbose
         snapshotInDocker, // --env.snapshotInDocker
-        skipSnapshotTools // --env.skipSnapshotTools
+        skipSnapshotTools, // --env.skipSnapshotTools
+        compileSnapshot // --env.compileSnapshot
     } = env;
+
+    const useLibs = compileSnapshot;
     const isAnySourceMapEnabled = !!sourceMap || !!hiddenSourceMap;
     const externals = nsWebpack.getConvertedExternals(env.externals);
 
@@ -72,6 +76,8 @@ module.exports = env => {
         itemsToClean.push(`${join(projectRoot, "platforms", "android", "app", "src", "main", "assets", "snapshots")}`);
         itemsToClean.push(`${join(projectRoot, "platforms", "android", "app", "build", "configurations", "nativescript-android-snapshot")}`);
     }
+
+    const noEmitOnErrorFromTSConfig = getNoEmitOnErrorFromTSConfig(tsConfigPath);
 
     nsWebpack.processAppComponents(appComponents, platform);
     const config = {
@@ -106,7 +112,8 @@ module.exports = env => {
                 "node_modules",
             ],
             alias: {
-                '~': appFullPath
+                '~': appFullPath,
+                'tns-core-modules': '@nativescript/core'
             },
             // resolve symlinks to symlinked modules
             symlinks: true
@@ -126,6 +133,7 @@ module.exports = env => {
         devtool: hiddenSourceMap ? "hidden-source-map" : (sourceMap ? "inline-source-map" : "none"),
         optimization: {
             runtimeChunk: "single",
+            noEmitOnErrors: noEmitOnErrorFromTSConfig,
             splitChunks: {
                 cacheGroups: {
                     vendor: {
@@ -195,13 +203,13 @@ module.exports = env => {
 
                 {
                     test: /\.css$/,
-                    use: { loader: "css-loader", options: { url: false } }
+                    use: "nativescript-dev-webpack/css2json-loader"
                 },
 
                 {
                     test: /\.scss$/,
                     use: [
-                        { loader: "css-loader", options: { url: false } },
+                        "nativescript-dev-webpack/css2json-loader",
                         "sass-loader"
                     ]
                 },
@@ -255,6 +263,7 @@ module.exports = env => {
                 tsconfig: tsConfigPath,
                 async: false,
                 useTypescriptIncrementalApi: true,
+                checkSyntacticErrors: true,
                 memoryLimit: 4096
             })
         ],
@@ -280,7 +289,8 @@ module.exports = env => {
             projectRoot,
             webpackConfig: config,
             snapshotInDocker,
-            skipSnapshotTools
+            skipSnapshotTools,
+            useLibs
         }));
     }
 

@@ -1,4 +1,7 @@
-import { View } from "tns-core-modules/ui/core/view/view";
+import {
+    View
+} from "@nativescript/core";
+
 import { _getViews, _hasOwnProperty } from "./_utilities.method";
 
 const getViewsByType = function (typeName: string): Array<View> {
@@ -9,24 +12,24 @@ const getViewsByType = function (typeName: string): Array<View> {
 
     return viewsFound;
 
-}
+};
 
 const getViewsByTypes = function (...typeNames: Array<string>): Array<View> {
 
     const parentView = this as View;
-    const isAgreed = (vw: View, sVal: Array<string>) => sVal.some(val => _hasTypeName(vw, val));
+    const isAgreed = (vw: View, sVal: Array<string>) => sVal.some((val) => _hasTypeName(vw, val));
     const viewsFound = _getViews(parentView, typeNames, isAgreed);
 
     return viewsFound;
 
-}
+};
 
 function _hasTypeName(vw: View, val: string): boolean {
 
     // In addition to native types bar, picker, view, layout, list and text
     const types = {
 
-        form: [
+        "form": [
             "Button",
             "DatePicker",
             "ListPicker",
@@ -39,12 +42,12 @@ function _hasTypeName(vw: View, val: string): boolean {
             "RadAutoCompleteTextView",
             "RadDataForm"
         ],
-        field: [
+        "field": [
             "SearchBar",
             "TextField",
             "TextView"
         ],
-        tab: [
+        "tab": [
             "BottomNavigation",
             "Tabs",
             "TabView"
@@ -52,9 +55,10 @@ function _hasTypeName(vw: View, val: string): boolean {
 
     };
     const typeName: string = vw.typeName;
+    const notFound: number = -1;
 
-    return (_hasOwnProperty(types, val) && types[val].indexOf(typeName) !== -1)
-            || typeName.search(new RegExp(val, "i")) !== -1;
+    return (_hasOwnProperty(types, val) && types[val].indexOf(typeName) !== notFound)
+            || typeName.search(new RegExp(val, "i")) !== notFound;
 
 }
 

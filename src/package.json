@@ -1,7 +1,7 @@
 {
     "name": "nativescript-getters",
     "main": "getters",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "license": "MIT",
     "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
     "typings": "index.d.ts",
@@ -68,11 +68,16 @@
         "Pairs"
     ],
     "scripts": {
-        "tsc": "npm i && tsc"
+        "tsc": "npm i && tsc",
+        "lint": "node_modules/.bin/eslint ."
     },
     "devDependencies": {
-        "tns-core-modules": "^6.1.2",
-        "typescript": "^3.6.4"
+        "@nativescript/core": "^6.2.3",
+        "@typescript-eslint/eslint-plugin": "^2.10.0",
+        "@typescript-eslint/parser": "^2.10.0",
+        "eslint": "^5.16.0",
+        "eslint-loader": "^3.0.3",
+        "typescript": "^3.7.3"
     },
     "dependencies": {}
 }

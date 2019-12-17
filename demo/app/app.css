@@ -1,20 +1,69 @@
-﻿/*
-In NativeScript, the app.css file is where you place CSS rules that
-you would like to apply to your entire application. Check out
-http://docs.nativescript.org/ui/styling for a full list of the CSS
-selectors and properties you can use to style UI components.
+﻿@import "~@nativescript/theme/css/core.css";
+@import "~@nativescript/theme/css/default.css";
+
+/* 
+    ICONS FONT
+*/
+
+.fas {
+    font-family: "Font Awesome 5 Free", "fa-solid-900";
+    font-weight: 900;
+}
 
 /*
-In many cases you may want to use the NativeScript core theme instead
-of writing your own CSS rules. For a full list of class names in the theme
-refer to http://docs.nativescript.org/ui/theme.
+    LAYOUTS
 */
-@import '~nativescript-theme-core/css/core.light.css';
+
+StackLayout,
+WrapLayout {
+    horizontal-align: center;
+}
 
 /*
-For example, the following CSS rule changes the font size of all UI
-components that have the btn class name.
+    IMAGES
 */
-.btn {
-    font-size: 18;
+
+Image {
+    width: 50;
+    height: 50;
+    load-mode: async;
+}
+
+Image + Image {
+    margin-left: 10;
+}
+
+/*
+    PICKERS
+*/
+
+DatePicker,
+TimePicker {
+    height: 80;
+}
+
+DatePicker + TimePicker {
+    margin-left: 10;
+}
+
+/*
+    TEXTS
+*/
+
+TextField,
+TextView {
+    padding: 10;
+    border-width: 1;
+    border-style: solid;
+    border-color: black;
+    border-radius: 10;
+    placeholder-color: gray;
+}
+
+/*
+    SLIDER
+*/
+
+Slider {
+    width: 100%;
 }

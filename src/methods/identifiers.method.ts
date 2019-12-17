@@ -1,4 +1,7 @@
-import { View } from "tns-core-modules/ui/core/view/view";
+import {
+    View
+} from "@nativescript/core";
+
 import { _getViews } from "./_utilities.method";
 
 const getViewByIdentifier = function (id: string): any {
@@ -8,16 +11,17 @@ const getViewByIdentifier = function (id: string): any {
 
     return viewFound;
 
-}
+};
 
 const getViewsByIdentifiers = function (...identifiers: Array<string>): Array<View> {
 
     const parentView = this as View;
-    const isAgreed = (vw: View, sVal: Array<string>) => sVal.indexOf(vw.id) !== -1;
+    const notFound: number = -1;
+    const isAgreed = (vw: View, sVal: Array<string>) => sVal.indexOf(vw.id) !== notFound;
     const viewsFound = _getViews(parentView, identifiers, isAgreed);
 
     return viewsFound;
 
-}
+};
 
 export { getViewByIdentifier, getViewsByIdentifiers };
