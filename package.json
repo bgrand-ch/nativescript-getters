@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "nativescript-getters-monorepo",
+  "scripts": {
+    "postprepare": "npm rebuild",
+    "commit": "git-cz"
+  },
+  "dependencies": {
+    "@nativescript/core": "8.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "12.1.1",
+    "@commitlint/config-conventional": "12.1.1",
+    "@nativescript/android": "8.0.0",
+    "@nativescript/eslint-plugin": "0.0.4",
+    "@nativescript/ios": "8.0.0",
+    "@nativescript/types": "8.0.0",
+    "@nativescript/webpack": "5.0.0-beta.4",
+    "@typescript-eslint/eslint-plugin": "4.21.0",
+    "@typescript-eslint/parser": "4.21.0",
+    "commitizen": "4.2.3",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.23.0",
+    "husky": "4.3.8",
+    "standard-version": "9.1.1"
+  },
+  "workspaces": [
+    "./packages/*"
+  ]
+}
