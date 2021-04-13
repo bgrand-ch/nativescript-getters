@@ -1,10 +1,10 @@
 {
   "name": "nativescript-getters",
-  "version": "0.3.0",
+  "version": "0.2.0",
   "main": "getters",
   "typings": "index.d.ts",
-  "peerDependencies": {
-    "@nativescript/core": "8.0.0"
+  "dependencies": {
+    "@nativescript/core": "8.0.1"
   },
   "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
   "keywords": [
