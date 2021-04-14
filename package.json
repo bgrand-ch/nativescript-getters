@@ -7,8 +7,9 @@
   "scripts": {
     "postprepare": "npm rebuild",
     "commit": "git-cz",
+    "release": "standard-version",
     "clean": "ultra -r npx ns clean",
-    "demo:debug": "ns debug --path ./packages/demo --emulator --",
+    "demo:debug": "ns debug --path ./packages/demo --",
     "demo-ng:debug": "ns debug --path ./packages/demo-ng --",
     "demo-svelte:debug": "ns debug --path ./packages/demo-svelte --",
     "demo-ts:debug": "ns debug --path ./packages/demo-ts --",
