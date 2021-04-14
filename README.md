@@ -1,7 +1,7 @@
 # NativeScript Getters Plugin
 
 ![NPM version](https://img.shields.io/npm/v/nativescript-getters)
-![GitHub last commit](https://img.shields.io/github/last-commit/elvticc/nativescript-getters)
+![GitHub last commit](https://img.shields.io/github/last-commit/bgrand-ch/nativescript-getters)
 ![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
