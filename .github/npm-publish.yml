@@ -1,3 +1,6 @@
+# NPM Publish
+# @see https://github.com/marketplace/actions/npm-publish
+
 on:
   push:
     branches:
@@ -6,12 +9,20 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 10
+
       - run: npm install
+
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: ./src/package.json
+
+      - if: steps.publish.outputs.type != 'none'
+        run: |
+          echo "Version changed: ${{ steps.publish.outputs.old-version }} to ${{ steps.publish.outputs.version }}"
