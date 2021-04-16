@@ -1,5 +1,6 @@
 {
   "name": "nativescript-getters-root",
+  "version": "0.0.0",
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version"
