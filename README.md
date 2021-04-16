@@ -1,48 +1,48 @@
 # NativeScript Getters Plugin
 
-![Npm version](https://img.shields.io/npm/v/nativescript-getters)
-![GitHub last commit](https://img.shields.io/github/last-commit/elvticc/nativescript-getters)
-![Npm downloads](https://img.shields.io/npm/dw/nativescript-getters)
-![Npm bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
+![NPM version](https://img.shields.io/npm/v/nativescript-getters)
+![GitHub last commit](https://img.shields.io/github/last-commit/bgrand-ch/nativescript-getters)
+![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
+![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
-A NativeScript plugin that adds five new getters – in addition to the native "getViewById" method – to retrieve one or more views by tag, type, class, property or value pair.
+A NativeScript plugin that adds five new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, property or value pair.
 
 ## Getting Started
 
 ### Prerequisites
 
-#### The basics
+#### Basics
 
-&#160;&#160;&#10033;&#160;&#160;NativeScript installed and configured. (see [CLI setup](https://docs.nativescript.org/start/quick-setup)) <br>
-&#160;&#160;&#10033;&#160;&#160;An IDE with intelligent code completion. (see [VS Code](https://www.nativescript.org/nativescript-for-visual-studio-code)) <br>
-&#160;&#160;&#10033;&#160;&#160;A functional project to use the plugin. (see [app templates](https://docs.nativescript.org/app-templates/app-templates)) 
+- NativeScript installed and configured. (see [CLI setup](https://docs.nativescript.org/environment-setup.html))
+- An IDE with intelligent code completion. (see [VS Code](https://docs.nativescript.org/development-workflow.html#visual-studio-code))
+- A functional project to use the plugin. (see [app templates](https://docs.nativescript.org/development-workflow.html#create))
 
 #### Minimum versions
 
-&#160;&#160;&#10033;&#160;&#160;[tns-core-modules](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-tns-modules), 6.1.2 or higher <br>
-&#160;&#160;&#10033;&#160;&#160;[android-runtime](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-platforms), 6.1.2 or higher <br>
-&#160;&#160;&#10033;&#160;&#160;[ios-runtime](https://docs.nativescript.org/releases/upgrade-instructions#upgrading-platforms), 6.1.1 or higher <br>
-&#160;&#160;&#10033;&#160;&#160;ECMAScript, 2015 (ES6) or higher
+- [@nativescript/core](https://docs.nativescript.org/development-workflow.html#updating), 8.0.0 or higher
+- [@nativescript/android](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 8.0.0 or higher
+- [@nativescript/ios](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 8.0.0 or higher
+- ECMAScript, 2015 (ES6) or higher
 
 ### Installation
 
-In Command prompt / Terminal navigate to your application root folder and run one of the following commands to install the plugin. (see [docs](https://docs.nativescript.org/core-concepts/plugins))
+In Command prompt or Terminal navigate to your application root folder and run one of the following commands to install the plugin. (see [docs](https://docs.nativescript.org/development-workflow.html#plugins))
 
 ```shell
-tns plugin add nativescript-getters
+ns plugin add nativescript-getters
 ```
 
 or
 
 ```shell
-npm install nativescript-getters --save
+npm install --save nativescript-getters
 ```
 
 > The `--save` flag will add the plugin as dependency in your `package.json` file.
 
 ## Usage
 
-Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once at the entry point of the application. (see [docs](https://docs.nativescript.org/core-concepts/application-architecture#entry-point))
+Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once at the entry point of the application. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
 
 _JavaScript_
 
@@ -57,7 +57,7 @@ import "nativescript-getters";
 ```
 <br>
 
-> New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see all [methods](#methods))
+> New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see [methods](#methods))
 
 ### Vue.js
 
@@ -186,4 +186,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/elvticc/nati
 
 ## Contact
 
-Benjamin Grand [@elvticc](https://twitter.com/elvticc)
+Benjamin Grand [@bgrand_ch](https://twitter.com/bgrand_ch)
