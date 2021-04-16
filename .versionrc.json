@@ -1,0 +1,8 @@
+{
+  "packageFiles": [
+    {
+      "filename": "./src/package.json",
+      "type": "json"
+    }
+  ]
+}

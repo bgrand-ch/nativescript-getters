@@ -1,0 +1,12 @@
+{
+  "name": "nativescript-getters-root",
+  "scripts": {
+    "commit": "git-cz",
+    "release": "standard-version"
+  },
+  "devDependencies": {
+    "commitizen": "4.2.3",
+    "cz-conventional-changelog": "3.3.0",
+    "standard-version": "9.2.0"
+  }
+}
