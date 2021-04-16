@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/bgrand-ch/nativescript-getters/compare/v0.2.0...v0.3.1) (2021-04-16)
+
+
+### Features
+
+* migrate to ns8 ([#5](https://github.com/bgrand-ch/nativescript-getters/issues/5)) ([ee6ef4e](https://github.com/bgrand-ch/nativescript-getters/commit/ee6ef4edf2a284527cebd98e50d83d479326c5e1))
+
+
+### Bug Fixes
+
+* add nativescript platforms key to package json ([ea4ff50](https://github.com/bgrand-ch/nativescript-getters/commit/ea4ff506d75e3a93a2d5abc8c7ecf5d3a25ca9fa))
+
 ## [0.3.0](https://github.com/bgrand-ch/nativescript-getters/compare/v0.2.0...v0.3.0) (2021-04-16)
 
 

@@ -1,9 +1,15 @@
 {
   "name": "nativescript-getters",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "getters",
   "typings": "index.d.ts",
   "types": "index.d.ts",
+  "nativescript": {
+    "platforms": {
+      "android": "3.0.0",
+      "ios": "3.0.0"
+    }
+  },
   "dependencies": {
     "@nativescript/core": "8.0.1"
   },
