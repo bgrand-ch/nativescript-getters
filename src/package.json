@@ -1,83 +1,67 @@
 {
-    "name": "nativescript-getters",
-    "main": "getters",
-    "version": "0.2.0",
-    "license": "MIT",
-    "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
-    "typings": "index.d.ts",
-    "nativescript": {
-        "platforms": {
-            "android": "3.0.0",
-            "ios": "3.0.0"
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/elvticc/nativescript-getters.git"
-    },
-    "homepage": "https://github.com/elvticc/nativescript-getters",
-    "bugs": {
-        "url": "https://github.com/elvticc/nativescript-getters/issues"
-    },
-    "author": {
-        "name": "Benjamin Grand",
-        "email": "contact@bgrand.ch",
-        "url": "https://github.com/elvticc"
-    },
-    "keywords": [
-        "NativeScript",
-        "TypeScript",
-        "TS",
-        "JavaScript",
-        "JS",
-        "Android",
-        "iOS",
-        "Angular",
-        "NG",
-        "Vue",
-        "React",
-        "Plugin",
-        "Get",
-        "Getter",
-        "Getters",
-        "View",
-        "Views",
-        "Tag",
-        "Tags",
-        "Type",
-        "Types",
-        "Class",
-        "Classes",
-        "Id",
-        "Ids",
-        "Identifier",
-        "Identifiers",
-        "Prop",
-        "Props",
-        "Property",
-        "Properties",
-        "Attr",
-        "Attrs",
-        "Attribute",
-        "Attributes",
-        "Val",
-        "Vals",
-        "Value",
-        "Values",
-        "Pair",
-        "Pairs"
-    ],
-    "scripts": {
-        "tsc": "npm i && tsc",
-        "lint": "node_modules/.bin/eslint ."
-    },
-    "devDependencies": {
-        "@nativescript/core": "^6.2.3",
-        "@typescript-eslint/eslint-plugin": "^2.10.0",
-        "@typescript-eslint/parser": "^2.10.0",
-        "eslint": "^5.16.0",
-        "eslint-loader": "^3.0.3",
-        "typescript": "^3.7.3"
-    },
-    "dependencies": {}
+  "name": "nativescript-getters",
+  "version": "0.3.0",
+  "main": "getters",
+  "typings": "index.d.ts",
+  "types": "index.d.ts",
+  "dependencies": {
+    "@nativescript/core": "8.0.1"
+  },
+  "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
+  "keywords": [
+    "nativescript",
+    "tns",
+    "ns",
+    "android",
+    "ios",
+    "angular",
+    "ng",
+    "svelte",
+    "typescript",
+    "ts",
+    "vue",
+    "plugin",
+    "get",
+    "getter",
+    "getters",
+    "view",
+    "views",
+    "tag",
+    "tags",
+    "type",
+    "types",
+    "class",
+    "classes",
+    "id",
+    "ids",
+    "identifier",
+    "identifiers",
+    "prop",
+    "props",
+    "property",
+    "properties",
+    "attr",
+    "attrs",
+    "attribute",
+    "attributes",
+    "val",
+    "vals",
+    "value",
+    "values",
+    "pair",
+    "pairs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bgrand-ch/nativescript-getters.git"
+  },
+  "homepage": "https://github.com/bgrand-ch/nativescript-getters/#readme",
+  "bugs": {
+    "url": "https://github.com/bgrand-ch/nativescript-getters/issues"
+  },
+  "author": {
+    "name": "Benjamin Grand",
+    "url": "https://bgrand.ch"
+  },
+  "license": "MIT"
 }

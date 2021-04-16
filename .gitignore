@@ -1,0 +1,11 @@
+# Folders
+.vscode/
+node_modules/
+platforms/
+hooks/
+dist/
+
+# Files
+.DS_Store
+.env
+*.map
