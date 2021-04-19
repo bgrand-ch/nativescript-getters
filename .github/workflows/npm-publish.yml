@@ -17,8 +17,12 @@ jobs:
         with:
           node-version: 10
 
-      - run: cd src && npm install
-      - run: cd src && npm build
+      # https://stackoverflow.com/a/58142276/10531083
+      - name: Generate JS files
+        working-directory: ./src
+        run: |
+          npm install
+          npm run build
 
       - uses: JS-DevTools/npm-publish@v1
         with:
