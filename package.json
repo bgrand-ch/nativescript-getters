@@ -4,7 +4,6 @@
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version",
-    "build": "tsc --project ./src",
     "demo:debug": "ns debug android --path ./demo"
   },
   "devDependencies": {
