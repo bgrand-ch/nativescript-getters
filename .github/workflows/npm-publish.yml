@@ -25,7 +25,7 @@ jobs:
       - name: Copy README into main folder
         run: |
           echo "::set-env name=PACKAGE_README::${{ secrets.MAIN_FOLDER }}/README.md"
-          cp -uv ./README.md $PACKAGE_README
+          cp -v ./README.md $PACKAGE_README
 
       - name: Install package dependencies
         working-directory: ${{ secrets.MAIN_FOLDER }}

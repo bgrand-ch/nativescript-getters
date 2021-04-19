@@ -180,9 +180,15 @@ Name | Parameter
 :--- | :--------
 `getViewById` <br> _Alias: Identifier_ | `id: string`
 
+## Question? Idea?
+
+If you have a question about how `nativescript-getters` works or an idea to improve it, the [Discussions](https://github.com/bgrand-ch/nativescript-getters/discussions) tab in GitHub is the place to be.
+
+However, if you get an error, you should open an [issue](https://github.com/bgrand-ch/nativescript-getters/issues).
+
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/elvticc/nativescript-getters/blob/master/LICENSE) for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/bgrand-ch/nativescript-getters/blob/main/LICENSE.md) for more information.
 
 ## Contact
 
