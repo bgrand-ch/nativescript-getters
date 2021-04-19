@@ -1,7 +1,8 @@
-# NPM Publish
-# @see https://github.com/marketplace/actions/npm-publish
+# https://docs.github.com/en/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
+# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+# https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/
 
-name: NPM publish
+name: Publish package to NPM
 
 on:
   release:
@@ -12,23 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+
+      - name: Build on Node.js ${{ matrix.node_version }}
+        uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: ${{ matrix.node_version }}
+          registry-url: 'https://registry.npmjs.org'
 
-      # https://stackoverflow.com/a/58142276/10531083
-      - name: Generate JS files
-        working-directory: ./src
-        run: |
-          npm install
-          npm run build
+      - name: Install package dependencies
+        working-directory: ${{ secrets.MAIN_FOLDER }}
+        run: npm ci --ignore-scripts
 
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          package: ./src/package.json
+      - name: Compile TS files to JS files
+        working-directory: ${{ secrets.MAIN_FOLDER }}
+        run: npm run build --if-present
 
-      - if: steps.publish.outputs.type != 'none'
-        run: |
-          echo "Version changed: ${{ steps.publish.outputs.old-version }} to ${{ steps.publish.outputs.version }}"
+      - name: Publish package to NPM
+        working-directory: ${{ secrets.MAIN_FOLDER }}
+        run: npm publish --ignore-scripts --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
