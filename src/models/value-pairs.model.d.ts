@@ -9,4 +9,3 @@ interface IValuePairs {
     propertyValue: string | number | boolean;
 }
 export { IValuePairs };
-//# sourceMappingURL=value-pairs.model.d.ts.map

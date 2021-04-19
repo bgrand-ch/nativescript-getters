@@ -8,9 +8,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@nativescript/core": "8.0.1"
-  },
-  "devDependencies": {
+    "@nativescript/core": "8.0.1",
     "typescript": "4.2.4"
   },
   "nativescript": {
@@ -24,6 +22,7 @@
     "nativescript",
     "tns",
     "ns",
+    "{N}",
     "android",
     "ios",
     "angular",

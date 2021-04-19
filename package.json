@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "commit": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "build": "tsc --project ./src",
+    "demo:debug": "ns debug android --path ./demo"
   },
   "devDependencies": {
     "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
-    "standard-version": "9.2.0"
+    "nativescript": "8.0.1",
+    "standard-version": "9.2.0",
+    "typescript": "4.2.4"
   }
 }

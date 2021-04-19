@@ -5,7 +5,6 @@
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "declaration": true,
-    "declarationMap": true,
     "typeRoots": [
       "./typings"
     ]
