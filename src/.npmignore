@@ -1,17 +1,11 @@
 # Folders
 .vscode/
 node_modules/
-platforms/
-hooks/
 
 # Files
 .DS_Store
-.npmrc
 .env
 *.map
 *.ts
-!index.d.ts
-!methods/*.d.ts
-!models/*.d.ts
-!typings/*.d.ts
+!*.d.ts
 package-lock.json

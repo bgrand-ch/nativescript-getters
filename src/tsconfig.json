@@ -1,40 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "declaration": true,
-    "removeComments": false,
-    "noLib": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "target": "ES2017",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "skipLibCheck": true,
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "sourceMap": true,
-    "pretty": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "noEmitHelpers": true,
-    "noEmitOnError": false,
-    "noImplicitAny": false,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noFallthroughCasesInSwitch": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "*": [
-        "./node_modules/@nativescript/core/*",
-        "./node_modules/*"
-      ]
-    }
-  },
-  "exclude": [
-    "node_modules",
-    "platforms",
-    "hooks",
-    "e2e"
-  ]
+    "declaration": true,
+    "typeRoots": [
+      "./typings"
+    ]
+  }
 }

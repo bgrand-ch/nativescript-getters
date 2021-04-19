@@ -96,10 +96,9 @@ nsClasses.forEach((nsClass) => {
   try {
     Object.defineProperties(nsClass, newMethods);
   } catch (error) {
-    console.warn(
-      "-#########-- NATIVESCRIPT GETTERS PLUGIN WARNING --#########-",
-      `NativeScript class: ${nsClass} //`,
-      `Error ${error.name}: ${error.message}`
-    );
+    console.error('NativeScript Getters Plugin error', {
+      nsClass,
+      error
+    })
   }
 });
