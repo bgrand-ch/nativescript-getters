@@ -110,3 +110,4 @@ interface IGettersMethods {
     getViewByIdentifier<T extends View>(id: string): T;
 }
 export { IGettersMethods };
+//# sourceMappingURL=getters-methods.model.d.ts.map
