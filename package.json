@@ -4,7 +4,9 @@
   "scripts": {
     "commit": "git-cz",
     "release": "standard-version",
-    "demo:debug": "ns debug android --path ./demo"
+    "clean": "ns clean",
+    "debug:android": "ns debug android",
+    "debug:ios": "ns debug ios"
   },
   "devDependencies": {
     "commitizen": "4.2.3",

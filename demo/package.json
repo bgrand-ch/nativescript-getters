@@ -36,8 +36,8 @@
     "nativescript-getters": "../src"
   },
   "devDependencies": {
-    "@nativescript/android": "8.0.0",
-    "@nativescript/webpack": "beta"
+    "@nativescript/ios": "8.0.0",
+    "@nativescript/webpack": "5.0.0-beta.9"
   },
   "private": "true",
   "readme": "NativeScript Application"
