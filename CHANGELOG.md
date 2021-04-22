@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.4](https://github.com/bgrand-ch/nativescript-getters/compare/v0.2.0...v0.3.4) (2021-04-22)
+
+
+### Features
+
+* migrate to ns8 ([#5](https://github.com/bgrand-ch/nativescript-getters/issues/5)) ([ee6ef4e](https://github.com/bgrand-ch/nativescript-getters/commit/ee6ef4edf2a284527cebd98e50d83d479326c5e1))
+
+
+### Bug Fixes
+
+* **ci:** copy readme ([fb92084](https://github.com/bgrand-ch/nativescript-getters/commit/fb920844aa724c523c1ca326f4cf9a23c0d85112))
+* add nativescript core to peer dependencies ([#15](https://github.com/bgrand-ch/nativescript-getters/issues/15)) ([34ccad5](https://github.com/bgrand-ch/nativescript-getters/commit/34ccad5c940f5ea72f70c2d366f2f6121a6a08de))
+* add nativescript platforms key to package json ([#8](https://github.com/bgrand-ch/nativescript-getters/issues/8)) ([d72df68](https://github.com/bgrand-ch/nativescript-getters/commit/d72df6896d0ad667a04fa9f9fc2feedf6a0c1149))
+* various fixes ([#9](https://github.com/bgrand-ch/nativescript-getters/issues/9)) ([d4e3b22](https://github.com/bgrand-ch/nativescript-getters/commit/d4e3b225ce5e1a4fda2259b6f28a979a5847312c))
+
 ### [0.3.3](https://github.com/bgrand-ch/nativescript-getters/compare/v0.2.0...v0.3.3) (2021-04-22)
 
 
