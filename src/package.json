@@ -1,15 +1,18 @@
 {
   "name": "nativescript-getters",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "main": "getters",
   "typings": "index.d.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
   },
-  "dependencies": {
-    "@nativescript/core": "8.0.1",
+  "devDependencies": {
+    "@nativescript/core": "8.0.2",
     "typescript": "4.2.4"
+  },
+  "peerDependencies": {
+    "@nativescript/core": "8.x"
   },
   "nativescript": {
     "platforms": {
@@ -37,6 +40,12 @@
     "getters",
     "view",
     "views",
+    "element",
+    "elements",
+    "dom",
+    "document",
+    "object",
+    "model",
     "tag",
     "tags",
     "type",
@@ -44,7 +53,6 @@
     "class",
     "classes",
     "id",
-    "ids",
     "identifier",
     "identifiers",
     "prop",
@@ -56,7 +64,6 @@
     "attribute",
     "attributes",
     "val",
-    "vals",
     "value",
     "values",
     "pair",
