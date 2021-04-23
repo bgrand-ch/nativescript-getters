@@ -1,0 +1,9 @@
+##
+# Semantic pull requests
+# @see https://github.com/zeke/semantic-pull-requests
+# @see https://github.com/apps/semantic-pull-requests
+##
+
+titleAndCommits: true
+allowMergeCommits: true
+allowRevertCommits: true

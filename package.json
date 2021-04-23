@@ -2,7 +2,10 @@
   "name": "nativescript-getters-root",
   "version": "0.0.0",
   "scripts": {
-    "lint": "eslint --ext=.ts",
+    "lint": "eslint --ext=.ts src/",
+    "minify": "terser src/dist/index.js --output src/dist/index.min.js --comments all --compress",
+    "dev": "tsc --watch --project src/",
+    "build": "tsc --project src/",
     "clean": "ns clean",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
@@ -17,6 +20,7 @@
     "eslint": "7.24.0",
     "nativescript": "8.0.1",
     "standard-version": "9.2.0",
+    "terser": "5.6.1",
     "typescript": "4.2.4"
   }
 }

@@ -5,8 +5,7 @@
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "declaration": true,
-    "typeRoots": [
-      "./typings"
-    ]
+    "declarationDir": "./dist/typings",
+    "outDir": "./dist"
   }
 }
