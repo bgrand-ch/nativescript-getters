@@ -3,9 +3,6 @@
   "version": "0.3.4",
   "main": "./dist/index.js",
   "typings": "./dist/typings/index.d.ts",
-  "typeRoots": [
-    "./dist/typings"
-  ],
   "files": [
     "./dist/**/*"
   ],

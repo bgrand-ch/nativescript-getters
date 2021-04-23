@@ -6,6 +6,9 @@
     "skipLibCheck": true,
     "declaration": true,
     "declarationDir": "./dist/typings",
+    "typeRoots": [
+      "./dist/typings"
+    ],
     "outDir": "./dist"
   }
 }
