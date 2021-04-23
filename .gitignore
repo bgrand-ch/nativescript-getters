@@ -1,13 +1,14 @@
 # Folders
 .vscode/
+dist/
+hooks/
 node_modules/
 platforms/
-hooks/
 schema/
-dist/
 
 # Files
+*.map
 .DS_Store
 .env
-*.map
+package-lock.json
 src/*.js

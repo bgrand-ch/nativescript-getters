@@ -2,11 +2,11 @@
   "name": "nativescript-getters-root",
   "version": "0.0.0",
   "scripts": {
-    "commit": "git-cz",
-    "release": "standard-version",
     "clean": "ns clean",
+    "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
-    "debug:ios": "ns debug ios"
+    "release": "standard-version",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "commitizen": "4.2.3",
