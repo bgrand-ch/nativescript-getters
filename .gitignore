@@ -11,4 +11,4 @@ schema/
 .DS_Store
 .env
 package-lock.json
-src/*.js
+src/**/*.js
