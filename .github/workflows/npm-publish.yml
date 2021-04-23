@@ -1,12 +1,16 @@
-# https://docs.github.com/en/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
-# https://github.community/t/how-can-we-concatenate-multiple-env-vars-at-workflow-and-job-level/17744/2
-# https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun
-# https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#format
-# https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/
+##
+# Publish package to NPM
+# @see https://docs.github.com/en/actions/guides/publishing-nodejs-packages
+# @see https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions
+# @see https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions
+# @see https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+# @see https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/
+##
 
 name: Publish package to NPM
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
@@ -14,28 +18,33 @@ jobs:
   publish:
     runs-on: ubuntu-latest
 
+    env:
+      MAIN_FOLDER: ./src
+
+    defaults:
+      run:
+        working-directory: ${{ env.MAIN_FOLDER }}
+
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build on Node.js ${{ matrix.node_version }}
+      - name: Build on Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node_version }}
+          node-version: '16'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Copy README into main folder
-        run: cp -v ./README.md ${{ format('{0}/README.md', secrets.MAIN_FOLDER) }}
+        working-directory: ./
+        run: cp -v README.md ${{ format('{0}/README.md', env.MAIN_FOLDER) }}
 
       - name: Install package dependencies
-        working-directory: ${{ secrets.MAIN_FOLDER }}
         run: npm ci --ignore-scripts
 
       - name: Compile TS files to JS files
-        working-directory: ${{ secrets.MAIN_FOLDER }}
         run: npm run build --if-present
 
       - name: Publish package to NPM
-        working-directory: ${{ secrets.MAIN_FOLDER }}
         run: npm publish --ignore-scripts --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
