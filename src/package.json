@@ -1,8 +1,11 @@
 {
   "name": "nativescript-getters",
   "version": "0.3.4",
-  "main": "getters",
-  "typings": "index.d.ts",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
