@@ -2,7 +2,10 @@
   "name": "nativescript-getters",
   "version": "0.3.4",
   "main": "./dist/index.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/typings/index.d.ts",
+  "typeRoots": [
+    "./dist/typings"
+  ],
   "files": [
     "./dist/**/*"
   ],
