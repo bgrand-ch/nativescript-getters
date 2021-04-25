@@ -17,19 +17,15 @@
     }
   },
   "devDependencies": {
-    "@nativescript/core": "8.0.2",
+    "@nativescript/core": "8.0.3",
     "typescript": "4.2.4"
   },
   "peerDependencies": {
-    "@nativescript-community/ui-material-bottom-navigation": "5.x",
-    "@nativescript-community/ui-material-tabs": "5.x",
+    "@nativescript-community/ui-material-core": "5.x",
     "@nativescript/core": "8.x"
   },
   "peerDependenciesMeta": {
-    "@nativescript-community/ui-material-bottom-navigation": {
-      "optional": true
-    },
-    "@nativescript-community/ui-material-tabs": {
+    "@nativescript-community/ui-material-core": {
       "optional": true
     }
   },

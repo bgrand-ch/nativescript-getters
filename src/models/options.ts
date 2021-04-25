@@ -1,6 +1,4 @@
-export interface IOptions {
+export interface Options {
   hasCommunityPackages: boolean;
-  hasDomNames: boolean;
-  hasModuleAugmentation: boolean;
   isDebugging: boolean;
 }

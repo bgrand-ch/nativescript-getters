@@ -4,7 +4,9 @@
     "sourceType": "module",
     "ecmaVersion": 2015
   },
-  "plugins": ["@nativescript"],
+  "plugins": [
+    "@nativescript"
+  ],
   "extends": [
     "plugin:@nativescript/recommended"
   ]

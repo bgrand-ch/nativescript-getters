@@ -5,6 +5,7 @@
     "moduleResolution": "Node",
     "skipLibCheck": true,
     "declaration": true,
+    "declarationMap": true,
     "declarationDir": "./dist/typings",
     "typeRoots": [
       "./dist/typings"
