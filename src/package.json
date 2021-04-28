@@ -1,11 +1,8 @@
 {
   "name": "nativescript-getters",
   "version": "0.3.4",
-  "main": "./dist/index.js",
-  "typings": "./dist/typings/index.d.ts",
-  "files": [
-    "./dist/**/*"
-  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
@@ -82,7 +79,7 @@
     "type": "git",
     "url": "https://github.com/bgrand-ch/nativescript-getters.git"
   },
-  "homepage": "https://github.com/bgrand-ch/nativescript-getters/#readme",
+  "homepage": "https://github.com/bgrand-ch/nativescript-getters#readme",
   "bugs": {
     "url": "https://github.com/bgrand-ch/nativescript-getters/issues"
   },

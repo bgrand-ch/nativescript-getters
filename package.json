@@ -6,7 +6,7 @@
     "minify": "terser src/dist/index.js --output src/dist/index.min.js --comments all --compress",
     "dev": "tsc --watch --project src/",
     "build": "tsc --project src/",
-    "clean": "ns clean",
+    "clean": "rm -rfv src/dist/* && ns clean",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
     "release": "standard-version",

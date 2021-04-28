@@ -1,69 +1,25 @@
-﻿@import "~@nativescript/theme/css/core.css";
-@import "~@nativescript/theme/css/default.css";
-
-/* 
-    ICONS FONT
-*/
-
-.fas {
-    font-family: "Font Awesome 5 Free", "fa-solid-900";
-    font-weight: 900;
-}
+﻿/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
 
 /*
-    LAYOUTS
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. You can learn more about the
+NativeScript core theme at https://github.com/nativescript/theme
+The imported CSS rules must precede all other types of rules.
 */
+@import '@nativescript/theme/css/core.css';
+@import '@nativescript/theme/css/default.css';
 
-StackLayout,
-WrapLayout {
-    horizontal-align: center;
-}
+/* Place any CSS rules you want to apply on both iOS and Android here.
+This is where the vast majority of your CSS code goes. */
 
 /*
-    IMAGES
+The following CSS rule changes the font size of all Buttons that have the
+'-primary' class modifier.
 */
-
-Image {
-    width: 50;
-    height: 50;
-    load-mode: async;
-}
-
-Image + Image {
-    margin-left: 10;
-}
-
-/*
-    PICKERS
-*/
-
-DatePicker,
-TimePicker {
-    height: 80;
-}
-
-DatePicker + TimePicker {
-    margin-left: 10;
-}
-
-/*
-    TEXTS
-*/
-
-TextField,
-TextView {
-    padding: 10;
-    border-width: 1;
-    border-style: solid;
-    border-color: black;
-    border-radius: 10;
-    placeholder-color: gray;
-}
-
-/*
-    SLIDER
-*/
-
-Slider {
-    width: 100%;
+Button.-primary {
+  font-size: 18;
 }
