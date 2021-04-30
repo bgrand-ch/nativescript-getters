@@ -1,11 +1,15 @@
-import { View } from '@nativescript/core'
 import { getChildViews } from '../helpers/get-child-views'
+import type { View } from '@nativescript/core'
+import type { IsChecked } from '../models/types'
 
 export function getViewsByClasses (...classNames: string[]): View[] {
   const parentView: View = this
-  const foundViews = getChildViews.call(parentView, classNames)
+  const isChecked: IsChecked = function (names: string[]) {
+    const view: View = this
+    const className = view?.className || ''
 
-  console.log('#### GET VIEWS BY CLASSES ####', classNames)
+    return names.some(name => className.includes(name))
+  }
 
-  return foundViews
+  return getChildViews.call(parentView, classNames, isChecked)
 }

@@ -1,16 +1,16 @@
-import { View } from '@nativescript/core'
-
-type IsChecked = (searchedValues: string[]) => boolean
+import type { View } from '@nativescript/core'
+import type { IsChecked, Styles } from '../models'
 
 /**
- * Retrieve child views
+ * Retrieve child views that meet criteria
+ * @private
  * @see https://v7.docs.nativescript.org/api-reference/classes/view.html
  * @see https://dev.to/hebashakeel/difference-between-call-apply-and-bind-4p98
- * @param {string[]} searchedValues
+ * @param {string[]|Styles[]} values
  * @param {IsChecked} isChecked
  * @returns {View[]} Found views
  */
-export function getChildViews (names: string[], isChecked: IsChecked): View[] {
+export function getChildViews (values: string[] | Styles[], isChecked: IsChecked): View[] {
   const parentView: View = this
   const foundViews: View[] = []
 
@@ -19,16 +19,18 @@ export function getChildViews (names: string[], isChecked: IsChecked): View[] {
     const isLayout = typeName.includes('layout')
     const isScrollView = typeName.includes('scroll')
 
-    console.log('#### CHILD VIEW ####', view, {
-      typeName,
-      isLayout,
-      isScrollView
-    })
+    if (isChecked.call(view, values)) {
+      foundViews.push(view)
+    }
+
+    if (isLayout || isScrollView) {
+      const innerFoundViews: View[] = getChildViews.call(view, values, isChecked)
+
+      foundViews.push(...innerFoundViews)
+    }
 
     return true
   })
-
-  console.log('#### GET CHILD VIEWS ####', parentView)
 
   return foundViews
 }

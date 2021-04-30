@@ -17,7 +17,9 @@ export function navigatingTo(args: EventData) {
   const page = <Page>args.object
   const layout = page.content
 
-  layout.getViewsByClasses('h1', 'h2')
+  const foundViews = page.getViewsByStyles({ name: 'background', value: '#FF0000' })
+
+  console.log('foundViews:', foundViews)
 
   /*
     A page’s bindingContext is an object that should be used to perform

@@ -9,7 +9,7 @@ https://docs.nativescript.org/ui/components.
     The ActionBar is the NativeScript common abstraction over the Android ActionBar and iOS NavigationBar.
     http://docs.nativescript.org/ui/action-bar
     -->
-    <ActionBar title="My App" icon="" />
+    <ActionBar title="My App" icon="" id="t2" />
 
     <!--
     The StackLayout stacks UI components on the screen—either vertically or horizontally.
@@ -24,7 +24,7 @@ https://docs.nativescript.org/ui/components.
     -->
     <StackLayout class="p-20">
         <Label text="Tap the button" class="h1 text-center" />
-        <Button text="TAP" tap="{{ onTap }}" class="-primary" />
+        <Button text="TAP" tap="{{ onTap }}" id="test1" class="-primary" style="background: red;" />
         <Label text="{{ message }}" class="h2 text-center" textWrap="true" />
     </StackLayout>
 </Page>

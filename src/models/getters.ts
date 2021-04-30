@@ -1,4 +1,5 @@
-import { View } from '@nativescript/core'
+import type { View } from '@nativescript/core'
+import type { Styles } from './styles'
 
 export interface Getters {
   /**
@@ -32,10 +33,10 @@ export interface Getters {
    * Browse the children’s styles from the parent view and retrieve the views corresponding to this styles
    * @public
    * @function getViewsByStyles
-   * @param {string[]} styleNames - Style names of the views to find
+   * @param {Styles[]} styles - Style names and values of the views to find
    * @returns {View[]} Views that have been found
    */
-  getViewsByStyles: (...styleNames: string[]) => View[];
+  getViewsByStyles: (...styles: Styles[]) => View[];
 
   /**
    * Browse the children’s properties from the parent view and retrieve the views corresponding to this properties

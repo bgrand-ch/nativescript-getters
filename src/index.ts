@@ -1,5 +1,5 @@
+import type { Getters } from './models/getters'
 import { View } from '@nativescript/core/ui'
-import { Getters } from './models/getters'
 import {
   getViewsByTags,
   getViewsByTypes,
