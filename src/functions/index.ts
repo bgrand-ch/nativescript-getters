@@ -1,2 +1,7 @@
 export * from './options'
+export * from './tags'
+export * from './types'
 export * from './classes'
+export * from './styles'
+export * from './properties'
+export * from './identifiers'
