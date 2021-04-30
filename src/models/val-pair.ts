@@ -1,4 +1,4 @@
-export interface Styles {
+export interface ValPair {
   name: string;
   value: string;
 }

@@ -17,7 +17,7 @@ export function navigatingTo(args: EventData) {
   const page = <Page>args.object
   const layout = page.content
 
-  const foundViews = page.getViewsByStyles({ name: 'background', value: '#FF0000' })
+  const foundViews = page.getViewsByValPairs({ name: 'text', value: 'Tap the button' })
 
   console.log('foundViews:', foundViews)
 

@@ -1,5 +1,5 @@
 import type { View } from '@nativescript/core'
-import type { Styles } from './styles'
+import type { ValPair } from './val-pair'
 
 export interface Getters {
   /**
@@ -33,10 +33,19 @@ export interface Getters {
    * Browse the children’s styles from the parent view and retrieve the views corresponding to this styles
    * @public
    * @function getViewsByStyles
-   * @param {Styles[]} styles - Style names and values of the views to find
+   * @param {ValPair[]} styles - Style names and values of the views to find
    * @returns {View[]} Views that have been found
    */
-  getViewsByStyles: (...styles: Styles[]) => View[];
+  getViewsByStyles: (...styles: ValPair[]) => View[];
+
+  /**
+   * Browse the children’s value pairs from the parent view and retrieve the views corresponding to this value pairs
+   * @public
+   * @function getViewsByValPairs
+   * @param {ValPair[]} valPairs - Property names and values of the views to find
+   * @returns {View[]} Views that have been found
+   */
+   getViewsByValPairs: (...valPairs: ValPair[]) => View[];
 
   /**
    * Browse the children’s properties from the parent view and retrieve the views corresponding to this properties

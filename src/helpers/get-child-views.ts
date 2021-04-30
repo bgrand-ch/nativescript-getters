@@ -1,16 +1,16 @@
 import type { View } from '@nativescript/core'
-import type { IsChecked, Styles } from '../models'
+import type { ValPair, IsChecked } from '../models'
 
 /**
  * Retrieve child views that meet criteria
  * @private
  * @see https://v7.docs.nativescript.org/api-reference/classes/view.html
  * @see https://dev.to/hebashakeel/difference-between-call-apply-and-bind-4p98
- * @param {string[]|Styles[]} values
+ * @param {string[]|ValPair[]} values
  * @param {IsChecked} isChecked
  * @returns {View[]} Found views
  */
-export function getChildViews (values: string[] | Styles[], isChecked: IsChecked): View[] {
+export function getChildViews (values: string[] | ValPair[], isChecked: IsChecked): View[] {
   const parentView: View = this
   const foundViews: View[] = []
 

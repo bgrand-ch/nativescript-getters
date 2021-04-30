@@ -5,6 +5,7 @@ import {
   getViewsByTypes,
   getViewsByClasses,
   getViewsByStyles,
+  getViewsByValPairs,
   getViewsByProperties,
   getViewsByIdentifiers
 } from './functions'
@@ -19,6 +20,7 @@ View.prototype.getViewsByTags = getViewsByTags
 View.prototype.getViewsByTypes = getViewsByTypes
 View.prototype.getViewsByClasses = getViewsByClasses
 View.prototype.getViewsByStyles = getViewsByStyles
+View.prototype.getViewsByValPairs = getViewsByValPairs
 View.prototype.getViewsByProperties = getViewsByProperties
 View.prototype.getViewsByIdentifiers = getViewsByIdentifiers
 

@@ -1,13 +1,13 @@
 import { getChildViews } from '../helpers/get-child-views'
 import type { View } from '@nativescript/core'
-import type { IsChecked } from '../models/types'
+import type { IsChecked } from '../models/is-checked'
 
 export function getViewsByProperties (...propNames: string[]): View[] {
   const parentView: View = this
-  const isChecked: IsChecked = function (names: string[]) {
+  const isChecked: IsChecked = function (propNames: string[]) {
     const view: View = this
 
-    return names.some(name => view?.[name])
+    return propNames.some(name => view?.[name])
   }
 
   return getChildViews.call(parentView, propNames, isChecked)

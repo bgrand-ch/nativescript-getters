@@ -135,7 +135,8 @@ Name | Parameter(s) | Returns
 `getViewsByTags` | `...tagNames: string[]` | `View[]`
 `getViewsByTypes` | `...typeNames: string[]` | `View[]`
 `getViewsByClasses` | `...classNames: string[]` | `View[]`
-`getViewsByStyles` | `...styleNames: string[]` | `View[]`
+`getViewsByStyles` | `...styles: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
+`getViewsByValPairs` | `...valPairs: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
 `getViewsByProperties` <br> _Alias: getViewsByProps_ | `...propNames: string[]` | `View[]`
 `getViewsByIdentifiers` <br> _Alias: getViewsByIds_ | `...idNames: string[]` | `View[]`
 
