@@ -5,7 +5,7 @@
 ![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
-A NativeScript plugin that adds five new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, property or value pair.
+A NativeScript plugin that adds five new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, style or property.
 
 ## Getting Started
 
@@ -42,41 +42,13 @@ npm install --save nativescript-getters
 
 ## Usage
 
-Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once at the entry point of the application. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
-
-_JavaScript_
+Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once into the application entry point file. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
 
 ```javascript
-require("nativescript-getters");
-```
-
-_TypeScript_
-
-```typescript
 import "nativescript-getters";
 ```
-<br>
 
 > New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see [methods](#methods))
-
-### Vue.js
-
-The plugin may not work properly with these symlinked. It is because webpack resolves symlinks to their real locations by default.
-
-A workaround for this issue is to manually disable symlinks resolution in webpack:
-
-```javascript
-const config = {
-    // ...
-    resolve: {
-        // ...
-        // resolve symlinks to symlinked modules
-        symlinks: false, // default: true
-        // ...
-    }
-    // ...
-};
-```
 
 ### Examples
 
@@ -156,29 +128,51 @@ console.log("Checked boxes found:", checkedBoxes);
 
 ### Methods
 
-All methods **return an array of views**, except for the native method `getViewById` and its alias.
+All methods **return an array of [views](https://v7.docs.nativescript.org/api-reference/classes/view.html)**, except for the native method [`getViewById`](https://v7.docs.nativescript.org/api-reference/classes/view.html#getviewbyid).
 
-Name | Parameter(s)
-:--- | :-----------
-`getViewsByTag` | `tagName: string`
-`getViewsByTags` | `...tagNames: Array<string>`
-`getViewsByType` | `typeName: string`
-`getViewsByTypes` | `...typeNames: Array<string>`
-`getViewsByClass` | `className: string`
-`getViewsByClasses` | `...classNames: Array<string>`
-`getViewsByProperty` <br> _Aliases: Prop, Attribute or Attr_ | `propertyName: string`
-`getViewsByProperties` <br> _Aliases: Props, Attributes or Attrs_ | `...propertyNames: Array<string>`
-`getViewsByValuePair` <br> _Alias: ValPair_ | `propertyName: string` <br> `propertyValue: string\|number\|boolean`
-`getViewsByValuePairs` <br> _Alias: ValPairs_ | `...valuePairs: Array<IValuePair>` <br> _IValuePair: `{ propertyName: string, propertyValue: string\|number\|boolean }`_
-`getViewsByIdentifiers` <br> _Alias: Ids_ | `...identifierNames: Array<string>`
+Name | Parameter(s) | Returns
+:--- | :----------- | :-----
+`getViewsByTags` | `...tagNames: string[]` | `View[]`
+`getViewsByTypes` | `...typeNames: string[]` | `View[]`
+`getViewsByClasses` | `...classNames: string[]` | `View[]`
+`getViewsByStyles` | `...styleNames: string[]` | `View[]`
+`getViewsByProperties` <br> _Alias: getViewsByProps_ | `...propNames: string[]` | `View[]`
+`getViewsByIdentifiers` <br> _Alias: getViewsByIds_ | `...idNames: string[]` | `View[]`
 
 ### Native method
 
-The native method **returns only a view**. Its name is written in the singular (`getView`...).
+The native method **returns only a [view](https://v7.docs.nativescript.org/api-reference/classes/view.html)**. Its name is written in the singular (`getView`...).
 
-Name | Parameter
-:--- | :--------
-`getViewById` <br> _Alias: Identifier_ | `id: string`
+Name | Parameter | Returns
+:--- | :-------- | :-----
+`getViewById` | `idName: string` | `View`
+
+## Known issues
+
+### VSCode IntelliSense
+
+If the following **TypeScript declaration error occurs**, you need to open the application entry point file (and keep it open) or click on the tab of the file already open.
+
+```
+Property 'getViewsBy...' does not exist on type 'View'. ts(2339)
+```
+
+VSCode IntelliSense now remembers the entry point of the application and recognizes the declaration of new methods.
+
+### Vue.js
+
+The plugin may not work properly with these symlinked. It is because webpack resolves symlinks to their real locations by default.
+
+A workaround for this issue is to manually disable symlinks resolution in webpack:
+
+```javascript
+const config = {
+  resolve: {
+    // resolve symlinks to symlinked modules
+    symlinks: false
+  }
+}
+```
 
 ## Question? Idea?
 
