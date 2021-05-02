@@ -9,8 +9,8 @@
   },
   "nativescript": {
     "platforms": {
-      "android": "3.0.0",
-      "ios": "3.0.0"
+      "android": "8.0.0",
+      "ios": "8.0.0"
     }
   },
   "devDependencies": {
@@ -26,7 +26,7 @@
       "optional": true
     }
   },
-  "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
+  "description": "A NativeScript plugin that adds six new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, style, value pair or property.",
   "keywords": [
     "nativescript",
     "tns",
@@ -42,38 +42,26 @@
     "vue",
     "plugin",
     "get",
-    "getter",
     "getters",
-    "view",
     "views",
-    "element",
     "elements",
     "dom",
     "document",
     "object",
     "model",
-    "tag",
     "tags",
-    "type",
     "types",
-    "class",
     "classes",
-    "id",
-    "identifier",
-    "identifiers",
+    "styles",
+    "val pairs",
+    "value pairs",
     "prop",
-    "props",
     "property",
     "properties",
     "attr",
-    "attrs",
-    "attribute",
     "attributes",
-    "val",
-    "value",
-    "values",
-    "pair",
-    "pairs"
+    "id",
+    "identifiers"
   ],
   "repository": {
     "type": "git",
