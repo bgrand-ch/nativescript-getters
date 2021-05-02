@@ -5,7 +5,7 @@
 ![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
-A NativeScript plugin that adds five new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, style or property.
+A NativeScript plugin that adds six new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, style, value pair or property.
 
 ## Getting Started
 
@@ -44,84 +44,125 @@ npm install --save nativescript-getters
 
 Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once into the application entry point file. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
 
-```javascript
-import "nativescript-getters";
+```typescript
+import 'nativescript-getters'
 ```
 
-> New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see [methods](#methods))
+> New methods have been added into the Frame, Page, layouts, tabs and texts classes. (see [methods](#methods))
 
 ### Examples
 
 #### Get views by tags
 
-_JavaScript_
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const actionBar = page.getViewsByTags('ActionBar')[0] // case sensitive
+  const foundViews = page.getViewsByTags('Label', 'Button')
 
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const fields = pageLayout.getViewsByTags("TextField", "TextView");
-
-console.log("Fields found:", fields);
+  console.log('action bar:', actionBar)
+  console.log('found views:', foundViews)
+}
 ```
 
-_TypeScript_
+The list of possible tags can be found on the [modules page](https://v7.docs.nativescript.org/api-reference/modules.html) of the NativeScript API documentation. (see "Classes")
+
+#### Get views by types
 
 ```typescript
-import { topmost } from "tns-core-modules/ui/frame";
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const layouts = page.getViewsByTypes('layout')
+  const foundViews = page.getViewsByTypes('field', 'list')
 
-const pageLayout: View = topmost().currentPage.content;
-const layouts: Array<View> = pageLayout.getViewsByTags("TextField", "TextView");
-
-console.log("Fields found:", fields);
+  console.log('layouts:', layouts)
+  console.log('found views:', foundViews)
+}
 ```
 
-#### Get views by type
+The list of available types: `bar`, `picker`, `view`, `layout`, `list`, `text`, `tab`, `field` and `form`. (see [types.ts](https://github.com/bgrand-ch/nativescript-getters/tree/main/src/functions/types.ts))
 
-_JavaScript_
-
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const layouts = pageLayout.getViewsByType("layout");
-
-console.log("Layouts found:", layouts);
-```
-
-_TypeScript_
+#### Get views by classes
 
 ```typescript
-import { topmost } from "tns-core-modules/ui/frame";
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const mainTitle = page.getViewsByClasses('h1')[0]
+  const foundViews = page.getViewsByClasses('text-primary', 'font-italic')
 
-const pageLayout: View = topmost().currentPage.content;
-const layouts: Array<View> = pageLayout.getViewsByType("layout");
-
-console.log("Layouts found:", layouts);
+  console.log('main title:', mainTitle)
+  console.log('found views:', foundViews)
+}
 ```
 
-#### Get views by value pair
-
-_JavaScript_
-
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const checkedBoxes = pageLayout.getViewsByValuePair("checked", true); // or "true"
-
-console.log("Checked boxes found:", checkedBoxes);
-```
-
-_TypeScript_
+#### Get views by styles
 
 ```typescript
-import { topmost } from "tns-core-modules/ui/frame";
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const redViews = page.getViewsByStyles(
+    { name: 'background', value: 'FF0000' }
+  )
+  const foundViews = page.getViewsByStyles(
+    { name: 'visibility', value: 'collapsed' },
+    { name: 'opacity', value: '0.5' }
+  )
 
-const pageLayout: View = topmost().currentPage.content;
-const checkedBoxes: Array<View> = pageLayout.getViewsByValuePair("checked", true); // or "true"
+  console.log('red views:', redViews)
+  console.log('found views:', foundViews)
+}
+```
 
-console.log("Checked boxes found:", checkedBoxes);
+The list of possible styles can be found on the [style page](https://v7.docs.nativescript.org/api-reference/classes/style.html) of the NativeScript API documentation.
+
+> Note: The color name (example: red or white) is converted by NativeScript to hexadecimal.
+
+#### Get views by val pairs
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const welcomeTexts = page.getViewsByValPairs(
+    { name: 'text', value: 'Welcome' }
+  )
+  const foundViews = page.getViewsByValPairs(
+    { name: 'columns', value: 'auto' },
+    { name: 'width', value: '210' }
+  )
+
+  console.log('welcome texts:', welcomeTexts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible property names and their values can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
+
+#### Get views by properties
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const texts = page.getViewsByProperties('text') // alias: getViewsByProps('text')
+  const foundViews = page.getViewsByProperties('columns', 'width')
+
+  console.log('texts:', texts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible property names can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
+
+#### Get views by identifiers
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const debugIds = page.getViewsByIdentifiers('debug') // alias: getViewsByIds('debug')
+  const foundViews = page.getViewsByIdentifiers('my-id', 'another-id')
+
+  console.log('debug ids:', debugIds)
+  console.log('found views:', foundViews)
+}
 ```
 
 ## API
@@ -152,7 +193,7 @@ Name | Parameter | Returns
 
 ### VSCode IntelliSense
 
-If the following **TypeScript declaration error occurs**, you need to open the application entry point file (and keep it open) or click on the tab of the file already open.
+If the following **TypeScript declaration error occurs**, you need to open the application entry point file (**and keep it open**) or click on the tab of the file already open.
 
 ```
 Property 'getViewsBy...' does not exist on type 'View'. ts(2339)

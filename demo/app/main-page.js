@@ -10,7 +10,6 @@ JavaScript modules. The CommonJS require() function is how you import
 JavaScript modules defined in other files.
 */
 import { createViewModel } from './main-view-model';
-import 'nativescript-getters'
 
 export function onNavigatingTo(args) {
   /*
@@ -20,7 +19,9 @@ export function onNavigatingTo(args) {
     */
   const page = args.object
 
-  page.checkModuleAugmentation()
+  const foundViews = page.getViewsByTags('ActionBar')
+
+  console.log('found views:', foundViews)
 
   /*
     A page’s bindingContext is an object that should be used to perform

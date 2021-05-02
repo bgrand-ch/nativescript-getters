@@ -15,7 +15,6 @@ export function navigatingTo(args: EventData) {
     https://docs.nativescript.org/api-reference/classes/_ui_page_.page.html
     */
   const page = <Page>args.object
-  const layout = page.content
 
   const foundViews = page.getViewsByValPairs({ name: 'text', value: 'Tap the button' })
 

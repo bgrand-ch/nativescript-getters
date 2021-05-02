@@ -34,11 +34,15 @@ export function getViewsByTypes (...typeNames: string[]): View[] {
   const isChecked: IsChecked = function (typeNames: string[]) {
     const view: View = this
     const typeName = view?.typeName?.toLowerCase() || ''
+    const hasTypeName = typeNames.some(name => {
+      const lowerName = name.toLowerCase()
+      const typeList = types?.[lowerName]?.join('|')
+      const regex = new RegExp(typeList, 'i')
 
-    return (
-      typeNames.some(name => types?.[name]?.includes(typeName)) ||
-      typeNames.includes(typeName)
-    )
+      return regex.test(typeName) || typeName.includes(name)
+    })
+
+    return hasTypeName
   }
 
   return getChildViews.call(parentView, typeNames, isChecked)

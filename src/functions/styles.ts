@@ -6,12 +6,13 @@ export function getViewsByStyles (...styles: ValPair[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (styles: ValPair[]) {
     const view: View = this
-    const style = view?.style
+    const style = view?.style || {}
 
     return styles.some(({ name, value }) => {
       const currValue = style?.[name] || ''
+      const lowerValue = value?.toLowerCase()
 
-      return currValue.includes(value)
+      return currValue.includes(lowerValue || value)
     })
   }
 
