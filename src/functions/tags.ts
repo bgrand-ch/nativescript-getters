@@ -2,6 +2,7 @@ import { getChildViews, showError } from '../helpers'
 import type { View } from '@nativescript/core'
 import type { IsChecked } from '../models/is-checked'
 
+/** @internal */
 export function getViewsByTags (...tagNames: string[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (tagNames: string[]) {

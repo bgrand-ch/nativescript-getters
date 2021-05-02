@@ -3,4 +3,5 @@
 !*.d.ts
 !*.d.ts.map
 package-lock.json
+rollup.config.js
 tsconfig.json

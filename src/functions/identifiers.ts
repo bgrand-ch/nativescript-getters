@@ -2,6 +2,7 @@ import { getChildViews, showError } from '../helpers'
 import type { View } from '@nativescript/core'
 import type { IsChecked } from '../models/is-checked'
 
+/** @internal */
 export function getViewsByIdentifiers (...idNames: string[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (idNames: string[]) {

@@ -29,6 +29,7 @@ const types = {
   ]
 }
 
+/** @internal */
 export function getViewsByTypes (...typeNames: string[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (typeNames: string[]) {

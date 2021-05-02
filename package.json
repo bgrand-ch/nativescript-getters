@@ -2,8 +2,8 @@
   "name": "nativescript-getters-root",
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run clean:dist && tsc --watch --project src/",
-    "build": "npm run clean:dist && tsc --project src/",
+    "dev": "npm run clean:dist && cd src/ && npm run dev",
+    "build": "npm run clean:dist && cd src/ && npm run build",
     "clean": "npm run clean:dist && ns clean",
     "clean:dist": "rm -rfv src/dist/*",
     "debug:ios": "ns debug ios",
@@ -14,7 +14,6 @@
   },
   "devDependencies": {
     "@nativescript/eslint-plugin": "0.0.4",
-    "@typescript-eslint/parser": "4.22.0",
     "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",

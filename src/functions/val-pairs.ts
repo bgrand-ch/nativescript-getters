@@ -2,6 +2,7 @@ import { getChildViews, showError } from '../helpers'
 import type { View } from '@nativescript/core'
 import type { ValPair, IsChecked } from '../models'
 
+/** @internal */
 export function getViewsByValPairs (...valPairs: ValPair[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (valPairs: ValPair[]) {
