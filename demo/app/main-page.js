@@ -19,7 +19,9 @@ export function onNavigatingTo(args) {
     */
   const page = args.object
 
-  console.log(page.getViewsByTag('ActionBar'))
+  const foundViews = page.getViewsByTags('ActionBar')
+
+  console.log('found views:', foundViews)
 
   /*
     A page’s bindingContext is an object that should be used to perform

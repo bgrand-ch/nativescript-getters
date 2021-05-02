@@ -1,36 +1,32 @@
 {
   "name": "nativescript-getters",
-  "version": "0.3.4",
-  "main": "getters",
-  "typings": "index.d.ts",
+  "version": "0.4.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
   },
   "nativescript": {
     "platforms": {
-      "android": "3.0.0",
-      "ios": "3.0.0"
+      "android": "8.0.0",
+      "ios": "8.0.0"
     }
   },
   "devDependencies": {
-    "@nativescript/core": "8.0.2",
+    "@nativescript/core": "8.0.3",
     "typescript": "4.2.4"
   },
   "peerDependencies": {
-    "@nativescript/core": "8.x",
-    "@nativescript-community/ui-material-bottom-navigation": "5.x",
-    "@nativescript-community/ui-material-tabs": "5.x"
+    "@nativescript-community/ui-material-core": "5.x",
+    "@nativescript/core": "8.x"
   },
   "peerDependenciesMeta": {
-    "@nativescript-community/ui-material-bottom-navigation": {
-      "optional": true
-    },
-    "@nativescript-community/ui-material-tabs": {
+    "@nativescript-community/ui-material-core": {
       "optional": true
     }
   },
-  "description": "A NativeScript plugin that adds five new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property or value pair.",
+  "description": "A NativeScript plugin that adds six new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, style, value pair or property.",
   "keywords": [
     "nativescript",
     "tns",
@@ -46,44 +42,32 @@
     "vue",
     "plugin",
     "get",
-    "getter",
     "getters",
-    "view",
     "views",
-    "element",
     "elements",
     "dom",
     "document",
     "object",
     "model",
-    "tag",
     "tags",
-    "type",
     "types",
-    "class",
     "classes",
-    "id",
-    "identifier",
-    "identifiers",
+    "styles",
+    "val pairs",
+    "value pairs",
     "prop",
-    "props",
     "property",
     "properties",
     "attr",
-    "attrs",
-    "attribute",
     "attributes",
-    "val",
-    "value",
-    "values",
-    "pair",
-    "pairs"
+    "id",
+    "identifiers"
   ],
   "repository": {
     "type": "git",
     "url": "https://github.com/bgrand-ch/nativescript-getters.git"
   },
-  "homepage": "https://github.com/bgrand-ch/nativescript-getters/#readme",
+  "homepage": "https://github.com/bgrand-ch/nativescript-getters#readme",
   "bugs": {
     "url": "https://github.com/bgrand-ch/nativescript-getters/issues"
   },

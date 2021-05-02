@@ -1,5 +1,3 @@
 # Folders
 node_modules/
-
-# Files
-src/**/*.js
+dist/

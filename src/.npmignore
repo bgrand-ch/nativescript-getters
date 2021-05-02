@@ -1,12 +1,6 @@
-# Folders
-.vscode/
-node_modules/
-
 # Files
-.DS_Store
-.npmrc
-.env
-*.map
 *.ts
 !*.d.ts
+!*.d.ts.map
 package-lock.json
+tsconfig.json

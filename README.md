@@ -5,7 +5,7 @@
 ![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
-A NativeScript plugin that adds five new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, property or value pair.
+A NativeScript plugin that adds six new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, style, value pair or property.
 
 ## Getting Started
 
@@ -42,22 +42,181 @@ npm install --save nativescript-getters
 
 ## Usage
 
-Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once at the entry point of the application. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
-
-_JavaScript_
-
-```javascript
-require("nativescript-getters");
-```
-
-_TypeScript_
+Import the plugin at the top of your JavaScript or TypeScript file. It can be imported only once into the application entry point file. (see [docs](https://v7.docs.nativescript.org/core-concepts/application-architecture#entry-point))
 
 ```typescript
-import "nativescript-getters";
+import 'nativescript-getters'
 ```
-<br>
 
-> New methods have been added in the Frame, Page, tabs, layouts and texts classes. (see [methods](#methods))
+> New methods have been added into the Frame, Page, layouts, tabs and texts classes. (see [methods](#methods))
+
+### Examples
+
+#### Get views by tags
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const actionBar = page.getViewsByTags('ActionBar')[0] // case sensitive
+  const foundViews = page.getViewsByTags('Label', 'Button')
+
+  console.log('action bar:', actionBar)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible tags can be found on the [modules page](https://v7.docs.nativescript.org/api-reference/modules.html) of the NativeScript API documentation. (see "Classes")
+
+#### Get views by types
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const layouts = page.getViewsByTypes('layout')
+  const foundViews = page.getViewsByTypes('field', 'list')
+
+  console.log('layouts:', layouts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of available types: `bar`, `picker`, `view`, `layout`, `list`, `text`, `tab`, `field` and `form`. (see [types.ts](https://github.com/bgrand-ch/nativescript-getters/tree/main/src/functions/types.ts))
+
+#### Get views by classes
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const mainTitle = page.getViewsByClasses('h1')[0]
+  const foundViews = page.getViewsByClasses('text-primary', 'font-italic')
+
+  console.log('main title:', mainTitle)
+  console.log('found views:', foundViews)
+}
+```
+
+#### Get views by styles
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const redViews = page.getViewsByStyles(
+    { name: 'background', value: 'FF0000' }
+  )
+  const foundViews = page.getViewsByStyles(
+    { name: 'visibility', value: 'collapsed' },
+    { name: 'opacity', value: '0.5' }
+  )
+
+  console.log('red views:', redViews)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible styles can be found on the [style page](https://v7.docs.nativescript.org/api-reference/classes/style.html) of the NativeScript API documentation.
+
+> Note: The color name (example: red or white) is converted by NativeScript to hexadecimal.
+
+#### Get views by val pairs
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const welcomeTexts = page.getViewsByValPairs(
+    { name: 'text', value: 'Welcome' }
+  )
+  const foundViews = page.getViewsByValPairs(
+    { name: 'columns', value: 'auto' },
+    { name: 'width', value: '210' }
+  )
+
+  console.log('welcome texts:', welcomeTexts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible property names and their values can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
+
+#### Get views by properties
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const texts = page.getViewsByProperties('text') // alias: getViewsByProps('text')
+  const foundViews = page.getViewsByProperties('columns', 'width')
+
+  console.log('texts:', texts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible property names can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
+
+#### Get views by identifiers
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const debugIds = page.getViewsByIdentifiers('debug') // alias: getViewsByIds('debug')
+  const foundViews = page.getViewsByIdentifiers('my-id', 'another-id')
+
+  console.log('debug ids:', debugIds)
+  console.log('found views:', foundViews)
+}
+```
+
+### Example in stand-alone mode
+
+```typescript
+import { getViewsByTags } from 'nativescript-getters'
+
+export function standaloneMode(view: View) {
+  const foundViews = getViewsByTags.call(view, 'Label', 'Button')
+
+  console.log('found views:', foundViews)
+}
+```
+
+More info about `call()`:
+
+- [Difference between call, apply and bind](https://dev.to/hebashakeel/difference-between-call-apply-and-bind-4p98), by [@hebashakeel](https://twitter.com/hebashakeel)
+- [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), by [@MozDevNet](https://twitter.com/MozDevNet)
+
+## API
+
+### Methods
+
+All methods **return an array of [views](https://v7.docs.nativescript.org/api-reference/classes/view.html)**, except for the native method [`getViewById`](https://v7.docs.nativescript.org/api-reference/classes/view.html#getviewbyid).
+
+Name | Parameter(s) | Returns
+:--- | :----------- | :-----
+`getViewsByTags` | `...tagNames: string[]` | `View[]`
+`getViewsByTypes` | `...typeNames: string[]` | `View[]`
+`getViewsByClasses` | `...classNames: string[]` | `View[]`
+`getViewsByStyles` | `...styles: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
+`getViewsByValPairs` | `...valPairs: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
+`getViewsByProperties` <br> _Alias: getViewsByProps_ | `...propNames: string[]` | `View[]`
+`getViewsByIdentifiers` <br> _Alias: getViewsByIds_ | `...idNames: string[]` | `View[]`
+
+### Native method
+
+The native method **returns only a [view](https://v7.docs.nativescript.org/api-reference/classes/view.html)**. Its name is written in the singular (`getView`...).
+
+Name | Parameter | Returns
+:--- | :-------- | :-----
+`getViewById` | `idName: string` | `View`
+
+## Known issues
+
+### VSCode IntelliSense
+
+If the following **TypeScript declaration error occurs**, you need to open the application entry point file (**and keep it open**) or click on the tab of the file already open.
+
+```
+Property 'getViewsBy...' does not exist on type 'View'. ts(2339)
+```
+
+VSCode IntelliSense now remembers the entry point of the application and recognizes the declaration of new methods.
 
 ### Vue.js
 
@@ -67,118 +226,12 @@ A workaround for this issue is to manually disable symlinks resolution in webpac
 
 ```javascript
 const config = {
-    // ...
-    resolve: {
-        // ...
-        // resolve symlinks to symlinked modules
-        symlinks: false, // default: true
-        // ...
-    }
-    // ...
-};
+  resolve: {
+    // resolve symlinks to symlinked modules
+    symlinks: false
+  }
+}
 ```
-
-### Examples
-
-#### Get views by tags
-
-_JavaScript_
-
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const fields = pageLayout.getViewsByTags("TextField", "TextView");
-
-console.log("Fields found:", fields);
-```
-
-_TypeScript_
-
-```typescript
-import { topmost } from "tns-core-modules/ui/frame";
-
-const pageLayout: View = topmost().currentPage.content;
-const layouts: Array<View> = pageLayout.getViewsByTags("TextField", "TextView");
-
-console.log("Fields found:", fields);
-```
-
-#### Get views by type
-
-_JavaScript_
-
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const layouts = pageLayout.getViewsByType("layout");
-
-console.log("Layouts found:", layouts);
-```
-
-_TypeScript_
-
-```typescript
-import { topmost } from "tns-core-modules/ui/frame";
-
-const pageLayout: View = topmost().currentPage.content;
-const layouts: Array<View> = pageLayout.getViewsByType("layout");
-
-console.log("Layouts found:", layouts);
-```
-
-#### Get views by value pair
-
-_JavaScript_
-
-```javascript
-const topmost = require("tns-core-modules/ui/frame").topmost;
-
-const pageLayout = topmost().currentPage.content;
-const checkedBoxes = pageLayout.getViewsByValuePair("checked", true); // or "true"
-
-console.log("Checked boxes found:", checkedBoxes);
-```
-
-_TypeScript_
-
-```typescript
-import { topmost } from "tns-core-modules/ui/frame";
-
-const pageLayout: View = topmost().currentPage.content;
-const checkedBoxes: Array<View> = pageLayout.getViewsByValuePair("checked", true); // or "true"
-
-console.log("Checked boxes found:", checkedBoxes);
-```
-
-## API
-
-### Methods
-
-All methods **return an array of views**, except for the native method `getViewById` and its alias.
-
-Name | Parameter(s)
-:--- | :-----------
-`getViewsByTag` | `tagName: string`
-`getViewsByTags` | `...tagNames: Array<string>`
-`getViewsByType` | `typeName: string`
-`getViewsByTypes` | `...typeNames: Array<string>`
-`getViewsByClass` | `className: string`
-`getViewsByClasses` | `...classNames: Array<string>`
-`getViewsByProperty` <br> _Aliases: Prop, Attribute or Attr_ | `propertyName: string`
-`getViewsByProperties` <br> _Aliases: Props, Attributes or Attrs_ | `...propertyNames: Array<string>`
-`getViewsByValuePair` <br> _Alias: ValPair_ | `propertyName: string` <br> `propertyValue: string\|number\|boolean`
-`getViewsByValuePairs` <br> _Alias: ValPairs_ | `...valuePairs: Array<IValuePair>` <br> _IValuePair: `{ propertyName: string, propertyValue: string\|number\|boolean }`_
-`getViewsByIdentifiers` <br> _Alias: Ids_ | `...identifierNames: Array<string>`
-
-### Native method
-
-The native method **returns only a view**. Its name is written in the singular (`getView`...).
-
-Name | Parameter
-:--- | :--------
-`getViewById` <br> _Alias: Identifier_ | `id: string`
 
 ## Question? Idea?
 

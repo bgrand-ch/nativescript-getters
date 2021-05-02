@@ -5,7 +5,7 @@ purpose of the file is to pass control to the app’s first module.
 */
 
 import { Application } from '@nativescript/core';
-import 'nativescript-getters';
+import 'nativescript-getters'
 
 Application.run({ moduleName: 'app-root' })
 

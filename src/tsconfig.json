@@ -3,10 +3,11 @@
     "target": "ES2017",
     "module": "ESNext",
     "moduleResolution": "Node",
-    "skipLibCheck": true,
+    "outDir": "dist",
     "declaration": true,
-    "typeRoots": [
-      "./typings"
-    ]
+    "declarationMap": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true
   }
 }
