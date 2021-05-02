@@ -1,4 +1,5 @@
 import { getChildViews } from '../helpers/get-child-views'
+import { showError } from '../helpers/show-error'
 import type { View } from '@nativescript/core'
 import type { IsChecked } from '../models/is-checked'
 
@@ -32,19 +33,27 @@ const types = {
 export function getViewsByTypes (...typeNames: string[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (typeNames: string[]) {
-    const view: View = this
-    const typeName = view?.typeName?.toLowerCase() || ''
-    const hasTypeName = typeNames.some(name => {
-      const lowerName = name.toLowerCase()
-      const typeList = types?.[lowerName]?.join('|')
-      const regex = new RegExp(typeList, 'i')
+    let checked = false
 
-      return regex.test(typeName) || typeName.includes(name)
-    })
+    try {
+      const view: View = this
+      const typeName = view.typeName || ''
+      const lowerTypeName = typeName.toLowerCase()
 
-    return hasTypeName
+      checked = typeNames.some(name => {
+        const lowerName = name.toLowerCase()
+        const typeGroup = types[lowerName] as string[] || []
+        const typeList = typeGroup.join('|')
+        const regex = new RegExp(typeList, 'i')
+
+        return regex.test(lowerTypeName) || lowerTypeName.includes(name)
+      })
+    } catch (error) {
+      showError(error, 'getViewsByTypes')
+    }
+
+    return checked
   }
 
   return getChildViews.call(parentView, typeNames, isChecked)
 }
-

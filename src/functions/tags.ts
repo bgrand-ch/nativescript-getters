@@ -1,14 +1,23 @@
 import { getChildViews } from '../helpers/get-child-views'
+import { showError } from '../helpers/show-error'
 import type { View } from '@nativescript/core'
 import type { IsChecked } from '../models/is-checked'
 
 export function getViewsByTags (...tagNames: string[]): View[] {
   const parentView: View = this
   const isChecked: IsChecked = function (tagNames: string[]) {
-    const view: View = this
-    const typeName = view?.typeName || ''
+    let checked = false
 
-    return tagNames.includes(typeName)
+    try {
+      const view: View = this
+      const typeName = view.typeName || ''
+
+      checked = tagNames.includes(typeName)
+    } catch (error) {
+      showError(error, 'getViewsByTags')
+    }
+
+    return checked
   }
 
   return getChildViews.call(parentView, tagNames, isChecked)
