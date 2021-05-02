@@ -9,7 +9,8 @@
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
     "lint": "eslint --ext=.ts src/",
-    "release": "standard-version",
+    "release:minor": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as minor",
     "commit": "git-cz"
   },
   "devDependencies": {
