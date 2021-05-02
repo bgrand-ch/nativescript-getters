@@ -1,0 +1,6 @@
+# Files
+*.ts
+!*.d.ts
+!*.d.ts.map
+package-lock.json
+tsconfig.json
