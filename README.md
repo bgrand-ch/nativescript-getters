@@ -165,6 +165,23 @@ export function navigatingTo(args: EventData) {
 }
 ```
 
+### Example in stand-alone mode
+
+```typescript
+import { getViewsByTags } from 'nativescript-getters'
+
+export function standaloneMode(view: View) {
+  const foundViews = getViewsByTags.call(view, 'Label', 'Button')
+
+  console.log('found views:', foundViews)
+}
+```
+
+More info about `call()`:
+
+- [Difference between call, apply and bind](https://dev.to/hebashakeel/difference-between-call-apply-and-bind-4p98), by [@hebashakeel](https://twitter.com/hebashakeel)
+- [Function.prototype.call()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), by [@MozDevNet](https://twitter.com/MozDevNet)
+
 ## API
 
 ### Methods
