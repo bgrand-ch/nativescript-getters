@@ -1,14 +1,15 @@
 {
   "packageFiles": [
-    {
-      "filename": "./src/package.json",
-      "type": "json"
-    }
+    "./src/package.json"
   ],
   "bumpFiles": [
-    {
-      "filename": "./src/package.json",
-      "type": "json"
-    }
-  ]
+    "./src/package.json"
+  ],
+  "types": [
+    { "type": "feat", "section": "New features" },
+    { "type": "fix", "section": "Bug fixes" },
+    { "type": "perf", "section": "Performance improvement" }
+  ],
+  "gitTagFallback": false,
+  "dryRun": true
 }
