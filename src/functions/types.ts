@@ -42,7 +42,7 @@ export function getViewsByTypes (...typeNames: string[]): View[] {
       checked = typeNames.some(name => {
         const lowerName = name.toLowerCase()
         const typeGroup = types[lowerName] as string[] || []
-        const typeList = typeGroup.join('|')
+        const typeList = typeGroup.join('|') || 'empty'
         const regex = new RegExp(typeList, 'i')
 
         return regex.test(lowerTypeName) || lowerTypeName.includes(name)

@@ -21,7 +21,7 @@ export function navigatingTo(args: EventData) {
   // const buttonStyle = foundViews[0].style.background
   // console.log('buttonStyle:', buttonStyle)
 
-  const foundViews = page.getViewsByStyles({ name: 'background-color', value: 'FF0000' })
+  const foundViews = page.getViewsByTypes('form', 'layout')
   console.log('foundViews:', foundViews)
 
   /*
