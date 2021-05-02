@@ -20,6 +20,11 @@ export function showError (error: Error, methodName: string): void {
     message,
 
     newLine,
+    'Check your code. If the problem persists, open an issue:',
+    newLine,
+    'https://github.com/bgrand-ch/nativescript-getters/issues',
+
+    newLine,
     '--- Start stack trace ---',
 
     newLine,

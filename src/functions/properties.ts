@@ -1,5 +1,4 @@
-import { getChildViews } from '../helpers/get-child-views'
-import { showError } from '../helpers/show-error'
+import { getChildViews, showError } from '../helpers'
 import type { View } from '@nativescript/core'
 import type { IsChecked } from '../models/is-checked'
 

@@ -1,5 +1,4 @@
-import { getChildViews } from '../helpers/get-child-views'
-import { showError } from '../helpers/show-error'
+import { getChildViews, showError } from '../helpers'
 import type { View, Style } from '@nativescript/core'
 import type { ValPair, IsChecked } from '../models'
 
@@ -13,7 +12,7 @@ export function getViewsByStyles (...styles: ValPair[]): View[] {
       const style = view.style || {} as Style
 
       checked = styles.some(({ name, value }) => {
-        const currValue = style[name] as string || ''
+        const currValue = String(style[name])
 
         return currValue.includes(value)
       })
