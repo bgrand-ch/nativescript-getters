@@ -1,6 +1,7 @@
 /**
  * Show a formatted error in the console
  * @private
+ * @internal
  * @param {Error} error
  * @param {string} methodName
  * @returns {void} Show console error

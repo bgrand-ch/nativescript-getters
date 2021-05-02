@@ -2,24 +2,25 @@
   "name": "nativescript-getters-root",
   "version": "0.0.0",
   "scripts": {
-    "dev": "npm run clean:dist && tsc --watch --project src/",
-    "build": "npm run clean:dist && tsc --project src/",
+    "lint": "eslint --ext=.ts src/",
+    "dev": "npm run clean:dist && cd src/ && npm run dev",
+    "build": "npm run clean:dist && cd src/ && npm run build",
     "clean": "npm run clean:dist && ns clean",
     "clean:dist": "rm -rfv src/dist/*",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
-    "lint": "eslint --ext=.ts src/",
     "release": "standard-version",
+    "release:patch": "standard-version --release-as patch",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major",
     "commit": "git-cz"
   },
   "devDependencies": {
     "@nativescript/eslint-plugin": "0.0.4",
-    "@typescript-eslint/parser": "4.22.0",
     "commitizen": "4.2.3",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",
     "nativescript": "8.0.1",
-    "standard-version": "9.2.0",
-    "typescript": "4.2.4"
+    "standard-version": "9.2.0"
   }
 }
