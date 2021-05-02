@@ -11,3 +11,4 @@ schema/
 .DS_Store
 .env
 package-lock.json
+!src/package-lock.json
