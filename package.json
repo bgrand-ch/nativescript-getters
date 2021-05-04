@@ -9,7 +9,6 @@
     "clean:dist": "rm -rfv src/dist/*",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
-    "release": "standard-version",
     "release:patch": "standard-version --release-as patch",
     "release:minor": "standard-version --release-as minor",
     "release:major": "standard-version --release-as major",
@@ -21,6 +20,6 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",
     "nativescript": "8.0.1",
-    "standard-version": "9.2.0"
+    "standard-version": "9.3.0"
   }
 }
