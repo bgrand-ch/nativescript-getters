@@ -11,8 +11,7 @@ export default {
   input: './index.ts',
   output: {
     file: './dist/index.js',
-    format: 'es',
-    sourcemap: true
+    format: 'es'
   },
   external: [
     '@nativescript-core',
@@ -23,10 +22,7 @@ export default {
     typescript(),
     flatDts(),
     terser({
-      ecma: '2017',
-      format: {
-        indent_level: 2
-      }
+      ecma: '2017'
     })
   ]
 }
