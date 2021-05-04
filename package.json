@@ -21,6 +21,6 @@
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.25.0",
     "nativescript": "8.0.1",
-    "standard-version": "9.2.0"
+    "standard-version": "9.3.0"
   }
 }
