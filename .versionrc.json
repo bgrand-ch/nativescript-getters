@@ -6,9 +6,10 @@
     "./src/package.json"
   ],
   "types": [
-    { "type": "feat", "section": "New features" },
-    { "type": "fix", "section": "Bug fixes" },
-    { "type": "perf", "section": "Performance improvement" }
+    { "type": "fix", "section": "🐛 Fixes" },
+    { "type": "feat", "section": "✨ Features" },
+    { "type": "perf", "section": "🚀 Performance" },
+    { "type": "docs", "section": "📚 Documentation" }
   ],
   "skip": {
     "changelog": true

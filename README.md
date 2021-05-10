@@ -5,7 +5,7 @@
 ![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
 
-A NativeScript plugin that adds six new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, style, value pair or property.
+A NativeScript plugin that adds six new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, property, value pair or style.
 
 ## Getting Started
 
@@ -19,9 +19,9 @@ A NativeScript plugin that adds six new getters – in addition to the native `g
 
 #### Minimum versions
 
-- [@nativescript/core](https://docs.nativescript.org/development-workflow.html#updating), 8.0.0 or higher
-- [@nativescript/android](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 8.0.0 or higher
-- [@nativescript/ios](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 8.0.0 or higher
+- [@nativescript/core](https://docs.nativescript.org/development-workflow.html#updating), 7.0.0 or higher
+- [@nativescript/android](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 7.0.0 or higher
+- [@nativescript/ios](https://docs.nativescript.org/development-workflow.html#upgrading-platforms), 7.0.0 or higher
 - ECMAScript, 2015 (ES6) or higher
 
 ### Installation
@@ -80,7 +80,7 @@ export function navigatingTo(args: EventData) {
 }
 ```
 
-The list of available types: `bar`, `picker`, `view`, `layout`, `list`, `text`, `tab`, `field` and `form`. (see [types.ts](https://github.com/bgrand-ch/nativescript-getters/tree/main/src/functions/types.ts))
+The list of available types: `bar`, `picker`, `view`, `layout`, `list`, `text`, `tab`, `field` and `form`. (see [types.ts](https://github.com/bgrand-ch/nativescript-getters/blob/main/src/functions/types.ts))
 
 #### Get views by classes
 
@@ -95,25 +95,33 @@ export function navigatingTo(args: EventData) {
 }
 ```
 
-#### Get views by styles
+#### Get views by identifiers
 
 ```typescript
 export function navigatingTo(args: EventData) {
   const page = <Page>args.object
-  const redViews = page.getViewsByStyles(
-    { name: 'background', value: 'FF0000' }
-  )
-  const foundViews = page.getViewsByStyles(
-    { name: 'visibility', value: 'collapsed' },
-    { name: 'opacity', value: '0.5' }
-  )
+  const debugIds = page.getViewsByIdentifiers('debug') // alias: getViewsByIds('debug')
+  const foundViews = page.getViewsByIdentifiers('my-id', 'another-id')
 
-  console.log('red views:', redViews)
+  console.log('debug ids:', debugIds)
   console.log('found views:', foundViews)
 }
 ```
 
-The list of possible styles can be found on the [style page](https://v7.docs.nativescript.org/api-reference/classes/style.html) of the NativeScript API documentation.
+#### Get views by properties
+
+```typescript
+export function navigatingTo(args: EventData) {
+  const page = <Page>args.object
+  const texts = page.getViewsByProperties('text') // alias: getViewsByProps('text')
+  const foundViews = page.getViewsByProperties('columns', 'width')
+
+  console.log('texts:', texts)
+  console.log('found views:', foundViews)
+}
+```
+
+The list of possible property names can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
 
 > Note: The color name (example: red or white) is converted by NativeScript to hexadecimal.
 
@@ -137,33 +145,25 @@ export function navigatingTo(args: EventData) {
 
 The list of possible property names and their values can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
 
-#### Get views by properties
+#### Get views by styles
 
 ```typescript
 export function navigatingTo(args: EventData) {
   const page = <Page>args.object
-  const texts = page.getViewsByProperties('text') // alias: getViewsByProps('text')
-  const foundViews = page.getViewsByProperties('columns', 'width')
+  const redViews = page.getViewsByStyles(
+    { name: 'background', value: 'FF0000' }
+  )
+  const foundViews = page.getViewsByStyles(
+    { name: 'visibility', value: 'collapsed' },
+    { name: 'opacity', value: '0.5' }
+  )
 
-  console.log('texts:', texts)
+  console.log('red views:', redViews)
   console.log('found views:', foundViews)
 }
 ```
 
-The list of possible property names can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
-
-#### Get views by identifiers
-
-```typescript
-export function navigatingTo(args: EventData) {
-  const page = <Page>args.object
-  const debugIds = page.getViewsByIdentifiers('debug') // alias: getViewsByIds('debug')
-  const foundViews = page.getViewsByIdentifiers('my-id', 'another-id')
-
-  console.log('debug ids:', debugIds)
-  console.log('found views:', foundViews)
-}
-```
+The list of possible styles can be found on the [style page](https://v7.docs.nativescript.org/api-reference/classes/style.html) of the NativeScript API documentation.
 
 ### Example in stand-alone mode
 
@@ -193,10 +193,10 @@ Name | Parameter(s) | Returns
 `getViewsByTags` | `...tagNames: string[]` | `View[]`
 `getViewsByTypes` | `...typeNames: string[]` | `View[]`
 `getViewsByClasses` | `...classNames: string[]` | `View[]`
-`getViewsByStyles` | `...styles: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
-`getViewsByValPairs` | `...valPairs: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
-`getViewsByProperties` <br> _Alias: getViewsByProps_ | `...propNames: string[]` | `View[]`
 `getViewsByIdentifiers` <br> _Alias: getViewsByIds_ | `...idNames: string[]` | `View[]`
+`getViewsByProperties` <br> _Alias: getViewsByProps_ | `...propNames: string[]` | `View[]`
+`getViewsByValPairs` | `...valPairs: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
+`getViewsByStyles` | `...styles: ValPair[]` <br> _ValPair: { name: string, value: string }_ | `View[]`
 
 ### Native method
 
