@@ -1,6 +1,5 @@
 # Folders
 .vscode/
-!.vscode/settings.json
 dist/
 hooks/
 node_modules/
@@ -13,3 +12,4 @@ schema/
 .env
 package-lock.json
 !src/package-lock.json
+!.vscode/settings.json
