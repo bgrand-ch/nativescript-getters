@@ -3,7 +3,6 @@ import type { ValPair, IsChecked } from '../models'
 
 /**
  * Retrieve child views that meet criteria
- * @private
  * @internal
  * @see https://v7.docs.nativescript.org/api-reference/classes/view.html
  * @see https://dev.to/hebashakeel/difference-between-call-apply-and-bind-4p98

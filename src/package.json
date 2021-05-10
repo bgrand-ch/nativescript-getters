@@ -9,12 +9,12 @@
   },
   "nativescript": {
     "platforms": {
-      "android": "8.0.0",
-      "ios": "8.0.0"
+      "android": "7.0.0",
+      "ios": "7.0.0"
     }
   },
   "devDependencies": {
-    "@nativescript/core": "8.0.3",
+    "@nativescript/core": "8.0.5",
     "@rollup/plugin-typescript": "8.2.1",
     "rollup": "2.47.0",
     "rollup-plugin-flat-dts": "1.2.1",
@@ -24,14 +24,14 @@
   },
   "peerDependencies": {
     "@nativescript-community/ui-material-core": "5.x",
-    "@nativescript/core": "8.x"
+    "@nativescript/core": "7.x"
   },
   "peerDependenciesMeta": {
     "@nativescript-community/ui-material-core": {
       "optional": true
     }
   },
-  "description": "A NativeScript plugin that adds six new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, style, value pair or property.",
+  "description": "A NativeScript plugin that adds six new getters – in addition to the native \"getViewById\" method – to retrieve one or more views by tag, type, class, property, value pair or style.",
   "keywords": [
     "nativescript",
     "tns",
@@ -39,14 +39,14 @@
     "{N}",
     "android",
     "ios",
+    "typescript",
+    "ts",
     "angular",
     "ng",
     "svelte",
-    "typescript",
-    "ts",
     "vue",
+    "react",
     "plugin",
-    "get",
     "getters",
     "views",
     "elements",
@@ -58,14 +58,11 @@
     "types",
     "classes",
     "styles",
-    "val pairs",
-    "value pairs",
-    "prop",
+    "values",
+    "pairs",
     "property",
     "properties",
-    "attr",
     "attributes",
-    "id",
     "identifiers"
   ],
   "repository": {
