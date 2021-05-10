@@ -1,5 +1,6 @@
 # Folders
 .vscode/
+!.vscode/settings.json
 dist/
 hooks/
 node_modules/
