@@ -32,7 +32,7 @@
   "dependencies": {
     "@nativescript/core": "8.0.5",
     "@nativescript/theme": "3.0.1",
-    "nativescript-getters": "../src"
+    "nativescript-getters": "../src/dist"
   },
   "devDependencies": {
     "@nativescript/android": "8.0.0",
