@@ -1,9 +1,9 @@
 # NativeScript Getters Plugin
 
 ![NPM version](https://img.shields.io/npm/v/nativescript-getters)
-![GitHub last commit](https://img.shields.io/github/last-commit/bgrand-ch/nativescript-getters)
-![NPM downloads](https://img.shields.io/npm/dw/nativescript-getters)
 ![NPM bundle size](https://img.shields.io/bundlephobia/min/nativescript-getters)
+![NPM total downloads](https://img.shields.io/npm/dt/nativescript-getters)
+![GitHub last commit](https://img.shields.io/github/last-commit/bgrand-ch/nativescript-getters)
 
 A NativeScript plugin that adds six new getters – in addition to the native `getViewById` method – to retrieve one or more views by tag, type, class, property, value pair or style.
 
@@ -123,8 +123,6 @@ export function navigatingTo(args: EventData) {
 
 The list of possible property names can be found on the [view page](https://v7.docs.nativescript.org/api-reference/classes/view.html) of the NativeScript API documentation.
 
-> Note: The color name (example: red or white) is converted by NativeScript to hexadecimal.
-
 #### Get views by val pairs
 
 ```typescript
@@ -162,6 +160,8 @@ export function navigatingTo(args: EventData) {
   console.log('found views:', foundViews)
 }
 ```
+
+> Note: The color name (example: red or white) is converted by NativeScript to hexadecimal.
 
 The list of possible styles can be found on the [style page](https://v7.docs.nativescript.org/api-reference/classes/style.html) of the NativeScript API documentation.
 
