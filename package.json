@@ -16,10 +16,10 @@
   },
   "devDependencies": {
     "@nativescript/eslint-plugin": "0.0.4",
-    "commitizen": "4.2.4",
+    "commitizen": "4.2.5",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.26.0",
-    "nativescript": "8.0.1",
-    "standard-version": "9.3.0"
+    "nativescript": "8.3.3",
+    "standard-version": "9.5.0"
   }
 }
