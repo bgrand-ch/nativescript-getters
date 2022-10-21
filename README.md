@@ -239,6 +239,10 @@ If you have a question about how `nativescript-getters` works or an idea to impr
 
 However, if you get an error, you should open an [issue](https://github.com/bgrand-ch/nativescript-getters/issues).
 
+## Contributing
+
+See [CONTRIBUTING](https://github.com/bgrand-ch/nativescript-getters/blob/main/CONTRIBUTING.md) for more information.
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](https://github.com/bgrand-ch/nativescript-getters/blob/main/LICENSE.md) for more information.
