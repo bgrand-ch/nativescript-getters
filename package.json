@@ -9,9 +9,6 @@
     "clean:dist": "rm -rfv src/dist/*",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
-    "release:patch": "npm run build && cd src/ && npm version patch -m \"chore(release): %s\"",
-    "release:minor": "npm run build && cd src/ && npm version minor -m \"chore(release): %s\"",
-    "release:major": "npm run build && cd src/ && npm version major -m \"chore(release): %s\"",
     "commit": "git-cz"
   },
   "devDependencies": {
