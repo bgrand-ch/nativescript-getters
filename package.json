@@ -9,9 +9,9 @@
     "clean:dist": "rm -rfv src/dist/*",
     "debug:ios": "ns debug ios",
     "debug:android": "ns debug android",
-    "release:patch": "standard-version --release-as patch",
-    "release:minor": "standard-version --release-as minor",
-    "release:major": "standard-version --release-as major",
+    "release:patch": "npm run build && npm version patch -m \"chore(release): %s\"",
+    "release:minor": "npm run build && npm version minor -m \"chore(release): %s\"",
+    "release:major": "npm run build && npm version major -m \"chore(release): %s\"",
     "commit": "git-cz"
   },
   "devDependencies": {
@@ -19,7 +19,6 @@
     "commitizen": "4.2.5",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "7.26.0",
-    "nativescript": "8.3.3",
-    "standard-version": "9.5.0"
+    "nativescript": "8.3.3"
   }
 }
